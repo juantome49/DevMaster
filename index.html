@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevMaster Academy - Programación, Bases de Datos y Matemáticas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff006e;
+            --accent: #8338ec;
+            --math: #ffbe0b;
+            --database: #06ffa5;
+            --dark: #0a0a0f;
+            --darker: #050508;
+            --light: #ffffff;
+            --gray: #1a1a2e;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--darker);
+            overflow: hidden;
+        }
+        
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 0, 110, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(131, 56, 236, 0.1) 0%, transparent 50%);
+            animation: moveBg 20s ease-in-out infinite;
+        }
+        
+        @keyframes moveBg {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-5%, -5%) rotate(5deg); }
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .btn-math {
+            background: linear-gradient(135deg, var(--math), var(--secondary));
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(255, 190, 11, 0.3);
+        }
+        
+        .btn-db {
+            background: linear-gradient(135deg, var(--database), var(--primary));
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(6, 255, 165, 0.3);
+        }
+        
+        /* Floating Elements */
+        .floating-code {
+            position: absolute;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: rgba(0, 212, 255, 0.3);
+            pointer-events: none;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(2deg); opacity: 0.6; }
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-header p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Level Tabs */
+        .level-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 0.8rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--dark);
+            border-color: transparent;
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+        }
+        
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            display: none;
+        }
+        
+        .content-grid.active {
+            display: grid;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(10, 10, 15, 0.9));
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 0, 110, 0.2));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .card-math .card-icon {
+            background: linear-gradient(135deg, rgba(255, 190, 11, 0.2), rgba(255, 0, 110, 0.2));
+            border-color: rgba(255, 190, 11, 0.2);
+        }
+        
+        .card-db .card-icon {
+            background: linear-gradient(135deg, rgba(6, 255, 165, 0.2), rgba(0, 212, 255, 0.2));
+            border-color: rgba(6, 255, 165, 0.2);
+        }
+        
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+        
+        .card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .card ul {
+            margin-top: 1rem;
+            padding-left: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .card li {
+            margin-bottom: 0.3rem;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .difficulty.basic { background: rgba(6, 255, 165, 0.2); color: var(--database); }
+        .difficulty.intermediate { background: rgba(255, 190, 11, 0.2); color: var(--math); }
+        .difficulty.advanced { background: rgba(255, 0, 110, 0.2); color: var(--secondary); }
+        
+        /* Interactive Playground */
+        .playground-section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(10, 10, 15, 1));
+            border-radius: 30px;
+            padding: 3rem;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            margin: 4rem 0;
+        }
+        
+        .playground-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+        
+        .playground-tab {
+            padding: 0.5rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-radius: 8px;
+        }
+        
+        .playground-tab.active {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+        }
+        
+        .playground-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 968px) {
+            .playground-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .editor {
+            background: #1e1e2e;
+            border-radius: 15px;
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+        }
+        
+        .editor-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+        
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+        
+        textarea.code-input {
+            width: 100%;
+            min-height: 300px;
+            background: transparent;
+            border: none;
+            color: #a6accd;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+            outline: none;
+            line-height: 1.6;
+        }
+        
+        .output {
+            background: #0d0d15;
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            font-family: 'JetBrains Mono', monospace;
+            min-height: 300px;
+            position: relative;
+            overflow-y: auto;
+        }
+        
+        .run-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1.5rem;
+            background: var(--database);
+            color: var(--dark);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .run-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(6, 255, 165, 0.3);
+        }
+        
+        /* Math Visualization */
+        .math-viz {
+            background: #0d0d15;
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 190, 11, 0.2);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .formula-box {
+            background: rgba(255, 190, 11, 0.1);
+            border: 1px solid rgba(255, 190, 11, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--math);
+        }
+        
+        /* Progress Section */
+        .progress-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 110, 0.1));
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 4rem 0;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 1s ease;
+            border-radius: 10px;
+        }
+        
+        /* Roadmap */
+        .roadmap {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .roadmap-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--math), var(--database));
+            transform: translateX(-50%);
+        }
+        
+        .roadmap-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+        
+        .roadmap-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .roadmap-content {
+            width: 45%;
+            background: rgba(26, 26, 46, 0.8);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .roadmap-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid var(--darker);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        /* SQL Schema Visualizer */
+        .schema-viz {
+            background: #1e1e2e;
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(6, 255, 165, 0.2);
+            margin-top: 2rem;
+        }
+        
+        .table-graph {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .db-table {
+            background: rgba(6, 255, 165, 0.1);
+            border: 1px solid rgba(6, 255, 165, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 200px;
+        }
+        
+        .db-table h4 {
+            color: var(--database);
+            border-bottom: 1px solid rgba(6, 255, 165, 0.3);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .db-table ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .db-table li {
+            padding: 0.3rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+        }
+        
+        .pk { color: var(--math); font-weight: bold; }
+        .fk { color: var(--secondary); }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            text-align: center;
+            margin-top: 6rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Syntax Highlighting */
+        .keyword { color: #c792ea; }
+        .string { color: #c3e88d; }
+        .function { color: #82aaff; }
+        .comment { color: #676e95; font-style: italic; }
+        .number { color: #f78c6c; }
+        .operator { color: #89ddff; }
+        
+        /* Mobile */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            transition: all 0.3s;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu {
+                display: flex;
+            }
+            .roadmap-line {
+                left: 20px;
+            }
+            .roadmap-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-left: 50px;
+            }
+            .roadmap-content {
+                width: 100%;
+            }
+            .roadmap-dot {
+                left: 20px;
+            }
+        }
+        
+        /* Animations */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .math-symbol {
+            font-size: 3rem;
+            color: var(--math);
+            opacity: 0.3;
+            position: absolute;
+            animation: float 10s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-code" style="top: 20%; left: 10%;">&lt;code&gt;</div>
+    <div class="floating-code" style="top: 60%; left: 85%; animation-delay: 2s;">∫f(x)dx</div>
+    <div class="floating-code" style="top: 40%; left: 90%; animation-delay: 4s;">SELECT *</div>
+    <div class="floating-code" style="top: 80%; left: 15%; animation-delay: 6s;">O(n log n)</div>
+    <div class="floating-code" style="top: 30%; left: 5%; animation-delay: 8s;">Σx²</div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">&lt;DevMaster /&gt;</div>
+        <ul class="nav-links">
+            <li><a href="#programacion">Programación</a></li>
+            <li><a href="#basesdatos">Bases de Datos</a></li>
+            <li><a href="#matematicas">Matemáticas</a></li>
+            <li><a href="#sistemas">Análisis</a></li>
+            <li><a href="#playground">Práctica</a></li>
+        </ul>
+        <div class="mobile-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Domina la <span>Programación</span>, <span>Bases de Datos</span> y <span>Matemáticas</span></h1>
+            <p>Plataforma educativa integral con fundamentos matemáticos, diseño de bases de datos y desarrollo de software profesional. Desde lógica básica hasta algoritmos avanzados.</p>
+            <div class="cta-buttons">
+                <a href="#basesdatos" class="btn btn-db">🗄️ Bases de Datos</a>
+                <a href="#matematicas" class="btn btn-math">📐 Matemáticas</a>
+                <a href="#programacion" class="btn btn-primary">💻 Programación</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MATHEMATICS SECTION -->
+    <section id="matematicas">
+        <div class="section-header">
+            <h2>📐 Fundamentos Matemáticos para Computación</h2>
+            <p>Matemáticas discretas, cálculo, álgebra lineal y estadística aplicadas a la programación</p>
+        </div>
+        
+        <div class="level-tabs">
+            <button class="tab-btn active" onclick="switchTab('math', 'basic')">Básico</button>
+            <button class="tab-btn" onclick="switchTab('math', 'intermediate')">Intermedio</button>
+            <button class="tab-btn" onclick="switchTab('math', 'advanced')">Avanzado</button>
+        </div>
+
+        <!-- Basic Math -->
+        <div id="math-basic" class="content-grid active">
+            <div class="card card-math">
+                <div class="card-icon">🔢</div>
+                <h3>Lógica Matemática</h3>
+                <p>Proposiciones, conectivos lógicos, tablas de verdad, cuantificadores y razonamiento deductivo.</p>
+                <ul>
+                    <li>Operadores: ∧, ∨, ¬, →, ↔</li>
+                    <li>Tautologías y contradicciones</li>
+                    <li>Leyes de De Morgan</li>
+                    <li>Inferencia lógica</li>
+                </ul>
+                <span class="difficulty basic">Básico</span>
+            </div>
+            <div class="card card-math">
+                <div class="card-icon">🔟</div>
+                <h3>Sistemas Numéricos</h3>
+                <p>Binario, octal, hexadecimal, conversiones entre bases y aritmética computacional.</p>
+                <ul>
+                    <li>Binario ↔ Decimal</li>
+                    <li>Hexadecimal para colores/memory</li>
+                    <li>Complemento a 2</li>
+                    <li>Operaciones bitwise</li>
+                </ul>
+                <span class="difficulty basic">Básico</span>
+            </div>
+            <div class="card card-math">
+                <div class="card-icon">📊</div>
+                <h3>Teoría de Conjuntos</h3>
+                <p>Conjuntos, subconjuntos, operaciones (unión, intersección, diferencia) y diagramas de Venn.</p>
+                <ul>
+                    <li>Notación matemática</li>
+                    <li>Producto cartesiano</li>
+                    <li>Relaciones y funciones básicas</li>
+                    <li>Aplicación en SQL JOINs</li>
+                </ul>
+                <span class="difficulty basic">Básico</span>
+            </div>
+            <div class="card card-math">
+                <div class="card-icon">📈</div>
+                <h3>Funciones y Gráficas</h3>
+                <p>Funciones lineales, cuadráticas, exponenciales y logarítmicas con aplicaciones en programación.</p>
+                <ul>
+                    <li>f(x) = mx + b</li>
+                    <li>Crecimiento exponencial</li>
+                    <li>Logaritmos en complejidad</li>
+                    <li>Interpolación básica</li>
+                </ul>
+                <span class="difficulty basic">Básico</span>
+            </div>
+        </div>
+
+        <!-- Intermediate Math -->
+        <div id="math-intermediate" class="content-grid">
+            <div class="card card-math">
+                <div class="card-icon">🧮</div>
+                <h3>Matemáticas Discretas</h3>
+                <p>Relaciones, funciones, recursión, inducción matemática y combinatoria esencial para algoritmos.</p>
+                <ul>
+                    <li>Relaciones de equivalencia</li>
+                    <li>Principio de inducción</li>
+                    <li>Permutaciones y combinaciones</li>
+                    <li>Principio del palomar</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+            <div class="card card-math">
+                <div class="card-icon">📉</div>
+                <h3>Probabilidad y Estadística</h3>
+                <p>Probabilidad condicional, distribuciones, estadística descriptiva e inferencial para Data Science.</p>
+                <ul>
+                    <li>Bayes: P(A|B) = P(B|A)P(A)/P(B)</li>
+                    <li>Distribuciones normales</li>
+                    <li>Media, mediana, moda, desviación</li>
+                    <li>Correlación y regresión</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+            <div class="card card-math">
+                <div class="card-icon">📐</div>
+                <h3>Álgebra Lineal</h3>
+                <p>Vectores, matrices, operaciones matriciales y aplicaciones en gráficos computacionales y ML.</p>
+                <ul>
+                    <li>Multiplicación de matrices</li>
+                    <li>Determinantes e inversas</li>
+                    <li>Sistemas de ecuaciones lineales</li>
+                    <li>Transformaciones lineales</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+            <div class="card card-math">
+                <div class="card-icon">🌳</div>
+                <h3>Teoría de Grafos</h3>
+                <p>Grafos dirigidos/no dirigidos, árboles, recorridos (BFS/DFS) y algoritmos de camino mínimo.</p>
+                <ul>
+                    <li>Matriz de adyacencia</li>
+                    <li>Árboles binarios de búsqueda</li>
+                    <li>Algoritmo de Dijkstra</li>
+                    <li>Coloreo de grafos</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+        </div>
+
+        <!-- Advanced Math -->
+        <div id="math-advanced" class="content-grid">
+            <div class="card card-math">
+                <div class="card-icon">∫</div>
+                <h3>Cálculo Diferencial e Integral</h3>
+                <p>Límites, derivadas, integrales y aplicaciones en optimización de algoritmos y machine learning.</p>
+                <ul>
+                    <li>Derivadas parciales</li>
+                    <li>Gradiente descendiente</li>
+                    <li>Integrales para probabilidad</li>
+                    <li>Series de Taylor</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+            <div class="card card-math">
+                <div class="card-icon">🎯</div>
+                <h3>Análisis de Algoritmos</h3>
+                <p>Notación Big O, complejidad temporal y espacial, análisis amortizado y optimización matemática.</p>
+                <ul>
+                    <li>O(1), O(log n), O(n), O(n²)</li>
+                    <li>Recurrencias: Master Theorem</li>
+                    <li>Análisis de peor/caso promedio</li>
+                    <li>Complejidad espacial</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+            <div class="card card-math">
+                <div class="card-icon">🔐</div>
+                <h3>Criptografía Matemática</h3>
+                <p>Aritmética modular, teoría de números, funciones hash y algoritmos de encriptación RSA/ECC.</p>
+                <ul>
+                    <li>Congruencias modulares</li>
+                    <li>Algoritmo de Euclides extendido</li>
+                    <li>Teorema de Euler-Fermat</li>
+                    <li>Curvas elípticas</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+            <div class="card card-math">
+                <div class="card-icon">🧠</div>
+                <h3>Matemáticas para Machine Learning</h3>
+                <p>Cálculo vectorial, optimización convexa, descenso del gradiente y álgebra tensorial.</p>
+                <ul>
+                    <li>Jacobians y Hessians</li>
+                    <li>Lagrange multipliers</li>
+                    <li>PCA y descomposición SVD</li>
+                    <li>Redes neuronales: backpropagation</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DATABASES SECTION -->
+    <section id="basesdatos">
+        <div class="section-header">
+            <h2>🗄️ Bases de Datos y Gestión de Información</h2>
+            <p>Diseño, implementación, optimización y administración de bases de datos relacionales y NoSQL</p>
+        </div>
+        
+        <div class="level-tabs">
+            <button class="tab-btn active" onclick="switchTab('db', 'basic')">Básico</button>
+            <button class="tab-btn" onclick="switchTab('db', 'intermediate')">Intermedio</button>
+            <button class="tab-btn" onclick="switchTab('db', 'advanced')">Avanzado</button>
+        </div>
+
+        <!-- Basic DB -->
+        <div id="db-basic" class="content-grid active">
+            <div class="card card-db">
+                <div class="card-icon">📋</div>
+                <h3>Fundamentos de Bases de Datos</h3>
+                <p>Conceptos básicos, modelos de datos, entidades, atributos y relaciones. Introducción al modelo relacional.</p>
+                <ul>
+                    <li>Tablas, filas y columnas</li>
+                    <li>Claves primarias y foráneas</li>
+                    <li>Integridad referencial</li>
+                    <li>Normalización (1FN, 2FN, 3FN)</li>
+                </ul>
+                <span class="difficulty basic">Básico</span>
+            </div>
+            <div class="card card-db">
+                <div class="card-icon">🔍</div>
+                <h3>SQL Básico (CRUD)</h3>
+                <p>Consultas fundamentales: SELECT, INSERT, UPDATE, DELETE. Filtrado con WHERE y ordenamiento.</p>
+                <ul>
+                    <li>SELECT * FROM tabla</li>
+                    <li>WHERE, AND, OR, NOT</li>
+                    <li>ORDER BY, LIMIT</li>
+                    <li>Funciones agregadas básicas</li>
+                </ul>
+                <span class="difficulty basic">Básico</span>
+            </div>
+            <div class="card card-db">
+                <div class="card-icon">🔗</div>
+                <h3>JOINs y Relaciones</h3>
+                <p>Combinación de tablas: INNER JOIN, LEFT JOIN, RIGHT JOIN. Cardinalidad de relaciones.</p>
+                <ul>
+                    <li>1:1, 1:N, N:M</li>
+                    <li>INNER vs OUTER JOINs</li>
+                    <li>Tablas puente/pivot</li>
+                    <li>Self-joins</li>
+                </ul>
+                <span class="difficulty basic">Básico</span>
+            </div>
+            <div class="card card-db">
+                <div class="card-icon">🛠️</div>
+                <h3>Diseño con Diagramas ER</h3>
+                <p>Modelado entidad-relación, notación Crow's Foot, transformación a modelo relacional.</p>
+                <ul>
+                    <li>Entidades fuertes y débiles</li>
+                    <li>Atributos compuestos/multivaluados</li>
+                    <li>Herramientas: MySQL Workbench</li>
+                    <li>De diagrama a tablas SQL</li>
+                </ul>
+                <span class="difficulty basic">Básico</span>
+            </div>
+        </div>
+
+        <!-- Intermediate DB -->
+        <div id="db-intermediate" class="content-grid">
+            <div class="card card-db">
+                <div class="card-icon">⚡</div>
+                <h3>SQL Avanzado y Subconsultas</h3>
+                <p>Subqueries correlacionadas, CTEs (WITH), window functions y consultas recursivas.</p>
+                <ul>
+                    <li>ROW_NUMBER(), RANK(), DENSE_RANK()</li>
+                    <li>OVER (PARTITION BY)</li>
+                    <li>CTEs recursivas</li>
+                    <li>PIVOT/UNPIVOT</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+            <div class="card card-db">
+                <div class="card-icon">🚀</div>
+                <h3>Optimización de Consultas</h3>
+                <p>Índices (B-Tree, Hash), planes de ejecución, query tuning y estadísticas.</p>
+                <ul>
+                    <li>EXPLAIN ANALYZE</li>
+                    <li>Índices compuestos</li>
+                    <li>Evitar full table scans</li>
+                    <li>Particionamiento de tablas</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+            <div class="card card-db">
+                <div class="card-icon">🔐</div>
+                <h3>Seguridad y Transacciones</h3>
+                <p>ACID, niveles de aislamiento, control de concurrencia, usuarios y permisos.</p>
+                <ul>
+                    <li>BEGIN, COMMIT, ROLLBACK</li>
+                    <li>Deadlocks y locks</li>
+                    <li>GRANT, REVOKE</li>
+                    <li>Encriptación de datos</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+            <div class="card card-db">
+                <div class="card-icon">📊</div>
+                <h3>Procedimientos y Triggers</h3>
+                <p>Stored procedures, funciones, triggers, vistas materializadas y eventos programados.</p>
+                <ul>
+                    <li>PL/pgSQL, T-SQL</li>
+                    <li>Triggers BEFORE/AFTER</li>
+                    <li>Vistas actualizables</li>
+                    <li>Cursores</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+        </div>
+
+        <!-- Advanced DB -->
+        <div id="db-advanced" class="content-grid">
+            <div class="card card-db">
+                <div class="card-icon">🗄️</div>
+                <h3>Bases de Datos NoSQL</h3>
+                <p>MongoDB (documentos), Redis (key-value), Cassandra (columnas), Neo4j (grafos).</p>
+                <ul>
+                    <li>Modelado de documentos</li>
+                    <li>Sharding y replicación</li>
+                    <li>CAP Theorem</li>
+                    <li>CQRS y Event Sourcing</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+            <div class="card card-db">
+                <div class="card-icon">⚙️</div>
+                <h3>Administración y Alta Disponibilidad</h3>
+                <p>Backup/restore, replicación maestro-esclavo, failover automático y clustering.</p>
+                <ul>
+                    <li>Streaming replication</li>
+                    <li>Patrones: Master-Slave, Multi-Master</li>
+                    <li>Load balancing</li>
+                    <li>Monitoring: Prometheus/Grafana</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+            <div class="card card-db">
+                <div class="card-icon">🔍</div>
+                <h3>Data Warehousing y BI</h3>
+                <p>Modelo estrella y copo de nieve, ETL/ELT, OLAP, columnar storage.</p>
+                <ul>
+                    <li>BigQuery, Snowflake, Redshift</li>
+                    <li>Dimensiones lentamente cambiantes</li>
+                    <li>Agregaciones y rollup</li>
+                    <li>Data Lakes</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+            <div class="card card-db">
+                <div class="card-icon">🧩</div>
+                <h3>Diseño de Sistemas Distribuidos</h3>
+                <p>Sharding strategies, consistencia eventual, vector clocks, CRDTs y NewSQL.</p>
+                <ul>
+                    <li>Consistent hashing</li>
+                    <li>SAGA pattern</li>
+                    <li>Two-phase commit</li>
+                    <li>CockroachDB, Spanner</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+        </div>
+
+        <!-- Schema Visualization -->
+        <div class="schema-viz">
+            <h3 style="text-align: center; margin-bottom: 2rem; color: var(--database);">Ejemplo de Modelo Relacional: Sistema E-commerce</h3>
+            <div class="table-graph">
+                <div class="db-table">
+                    <h4>USUARIOS</h4>
+                    <ul>
+                        <li><span class="pk">PK</span> id_usuario INT</li>
+                        <li>nombre VARCHAR(100)</li>
+                        <li>email VARCHAR(100)</li>
+                        <li>fecha_registro DATE</li>
+                    </ul>
+                </div>
+                <div style="color: var(--database); font-size: 2rem;">→</div>
+                <div class="db-table">
+                    <h4>ORDENES</h4>
+                    <ul>
+                        <li><span class="pk">PK</span> id_orden INT</li>
+                        <li><span class="fk">FK</span> id_usuario INT</li>
+                        <li>fecha_orden TIMESTAMP</li>
+                        <li>total DECIMAL(10,2)</li>
+                    </ul>
+                </div>
+                <div style="color: var(--database); font-size: 2rem;">→</div>
+                <div class="db-table">
+                    <h4>DETALLE_ORDEN</h4>
+                    <ul>
+                        <li><span class="pk">PK</span> id_detalle INT</li>
+                        <li><span class="fk">FK</span> id_orden INT</li>
+                        <li><span class="fk">FK</span> id_producto INT</li>
+                        <li>cantidad INT</li>
+                        <li>precio_unit DECIMAL</li>
+                    </ul>
+                </div>
+                <div style="color: var(--database); font-size: 2rem;">→</div>
+                <div class="db-table">
+                    <h4>PRODUCTOS</h4>
+                    <ul>
+                        <li><span class="pk">PK</span> id_producto INT</li>
+                        <li>nombre VARCHAR(200)</li>
+                        <li>precio DECIMAL(10,2)</li>
+                        <li>stock INT</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMMING SECTION -->
+    <section id="programacion">
+        <div class="section-header">
+            <h2>💻 Programación y Desarrollo</h2>
+            <p>Lenguajes, frameworks y metodologías de desarrollo de software profesional</p>
+        </div>
+        
+        <div class="level-tabs">
+            <button class="tab-btn active" onclick="switchTab('prog', 'basic')">Básico</button>
+            <button class="tab-btn" onclick="switchTab('prog', 'intermediate')">Intermedio</button>
+            <button class="tab-btn" onclick="switchTab('prog', 'advanced')">Avanzado</button>
+        </div>
+
+        <div id="prog-basic" class="content-grid active">
+            <div class="card">
+                <div class="card-icon">🐍</div>
+                <h3>Python Fundamentos</h3>
+                <p>Sintaxis, estructuras de datos, funciones, POO básica y manejo de archivos.</p>
+                <span class="difficulty basic">Básico</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Desarrollo Web Frontend</h3>
+                <p>HTML5 semántico, CSS3 moderno, Flexbox, Grid y JavaScript ES6+.</p>
+                <span class="difficulty basic">Básico</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">🗂️</div>
+                <h3>Estructuras de Datos Básicas</h3>
+                <p>Arrays, listas enlazadas, pilas, colas y algoritmos de búsqueda/ordenamiento simples.</p>
+                <span class="difficulty basic">Básico</span>
+            </div>
+        </div>
+
+        <div id="prog-intermediate" class="content-grid">
+            <div class="card">
+                <div class="card-icon">⚛️</div>
+                <h3>React & Node.js</h3>
+                <p>Desarrollo full-stack con MERN/PERN stack, APIs RESTful y autenticación.</p>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">☕</div>
+                <h3>Java & Spring Boot</h3>
+                <p>Programación orientada a objetos avanzada, inyección de dependencias y microservicios.</p>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧪</div>
+                <h3>Testing y Calidad</h3>
+                <p>TDD, unit testing, integration testing y CI/CD pipelines.</p>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+        </div>
+
+        <div id="prog-advanced" class="content-grid">
+            <div class="card">
+                <div class="card-icon">🏗️</div>
+                <h3>Arquitectura de Software</h3>
+                <p>Microservicios, event-driven architecture, DDD y patrones enterprise.</p>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>Inteligencia Artificial</h3>
+                <p>Machine Learning, Deep Learning, NLP y visión computacional.</p>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔒</div>
+                <h3>Seguridad Avanzada</h3>
+                <p>Ethical hacking, pentesting, seguridad en aplicaciones y cloud.</p>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYSTEMS ANALYSIS SECTION -->
+    <section id="sistemas">
+        <div class="section-header">
+            <h2>📊 Análisis y Diseño de Sistemas</h2>
+            <p>Ingeniería de software, modelado de procesos y arquitectura empresarial</p>
+        </div>
+        
+        <div class="level-tabs">
+            <button class="tab-btn active" onclick="switchTab('sys', 'basic')">Básico</button>
+            <button class="tab-btn" onclick="switchTab('sys', 'intermediate')">Intermedio</button>
+            <button class="tab-btn" onclick="switchTab('sys', 'advanced')">Avanzado</button>
+        </div>
+
+        <div id="sys-basic" class="content-grid active">
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3>Levantamiento de Requisitos</h3>
+                <p>Técnicas de recolección, análisis de stakeholders y documentación funcional.</p>
+                <span class="difficulty basic">Básico</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔄</div>
+                <h3>Modelado de Procesos</h3>
+                <p>Diagramas de flujo, DFD (Diagramas de Flujo de Datos) y BPMN básico.</p>
+                <span class="difficulty basic">Básico</span>
+            </div>
+        </div>
+
+        <div id="sys-intermediate" class="content-grid">
+            <div class="card">
+                <div class="card-icon">🗂️</div>
+                <h3>UML Avanzado</h3>
+                <p>Diagramas de clases, secuencia, componentes, estado y actividad.</p>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>Análisis de Negocio</h3>
+                <p>KPIs, modelado de procesos AS-IS/TO-BE, análisis de gap.</p>
+                <span class="difficulty intermediate">Intermedio</span>
+            </div>
+        </div>
+
+        <div id="sys-advanced" class="content-grid">
+            <div class="card">
+                <div class="card-icon">🏛️</div>
+                <h3>Arquitectura Empresarial</h3>
+                <p>Frameworks TOGAF, Zachman, mapeo de capacidades y gobernanza TI.</p>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Gestión de Cambio</h3>
+                <p>Transformación digital, ADKAR, gestión de stakeholders y comunicación.</p>
+                <span class="difficulty advanced">Avanzado</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE PLAYGROUND -->
+    <section id="playground">
+        <div class="playground-section">
+            <div class="section-header">
+                <h2>🚀 Laboratorio Interactivo</h2>
+                <p>Practica SQL, algoritmos y visualización matemática en tiempo real</p>
+            </div>
+            
+            <div class="playground-tabs">
+                <button class="playground-tab active" onclick="switchPlayground('sql')">🗄️ SQL Playground</button>
+                <button class="playground-tab" onclick="switchPlayground('algo')">⚡ Algoritmos</button>
+                <button class="playground-tab" onclick="switchPlayground('math')">📐 Matemáticas</button>
+            </div>
+
+            <!-- SQL Playground -->
+            <div id="playground-sql" class="playground-container" style="display: grid;">
+                <div class="editor">
+                    <div class="editor-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span style="margin-left: 1rem; color: rgba(255,255,255,0.5); font-size: 0.8rem;">query.sql</span>
+                    </div>
+                    <textarea class="code-input" id="sqlInput" spellcheck="false">-- Consulta de ejemplo: Clientes con órdenes recientes
+SELECT 
+    c.nombre,
+    c.email,
+    COUNT(o.id_orden) as total_ordenes,
+    SUM(o.total) as gasto_total
+FROM clientes c
+LEFT JOIN ordenes o ON c.id_cliente = o.id_cliente
+WHERE o.fecha >= '2024-01-01'
+GROUP BY c.id_cliente, c.nombre, c.email
+HAVING COUNT(o.id_orden) > 2
+ORDER BY gasto_total DESC
+LIMIT 10;</textarea>
+                    <button class="run-btn" onclick="runSQL()">▶ Ejecutar</button>
+                </div>
+                
+                <div class="output" id="sqlOutput">
+                    <div style="color: rgba(255,255,255,0.3); font-size: 0.8rem; margin-bottom: 1rem;">-- Resultado de la consulta</div>
+                    <div id="sqlResult" style="color: #c3e88d; line-height: 1.8; font-size: 0.85rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: #a6accd;">
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--database);">
+                                <th style="text-align: left; padding: 0.5rem;">nombre</th>
+                                <th style="text-align: left; padding: 0.5rem;">email</th>
+                                <th style="text-align: left; padding: 0.5rem;">total_ordenes</th>
+                                <th style="text-align: left; padding: 0.5rem;">gasto_total</th>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.5rem;">María González</td>
+                                <td style="padding: 0.5rem;">maria@email.com</td>
+                                <td style="padding: 0.5rem;">5</td>
+                                <td style="padding: 0.5rem;">$2,450.00</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.5rem;">Carlos Ruiz</td>
+                                <td style="padding: 0.5rem;">carlos@email.com</td>
+                                <td style="padding: 0.5rem;">8</td>
+                                <td style="padding: 0.5rem;">$1,890.50</td>
+                            </tr>
+                        </table>
+                        <br><span style="color: #676e95;">-- 2 rows returned (0.023s)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Algorithms Playground -->
+            <div id="playground-algo" class="playground-container" style="display: none;">
+                <div class="editor">
+                    <div class="editor-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span style="margin-left: 1rem; color: rgba(255,255,255,0.5); font-size: 0.8rem;">algorithm.py</span>
+                    </div>
+                    <textarea class="code-input" id="algoInput" spellcheck="false"># Algoritmo de búsqueda binaria - O(log n)
+def busqueda_binaria(arr, objetivo):
+    izquierda, derecha = 0, len(arr) - 1
+    pasos = 0
+    
+    while izquierda <= derecha:
+        pasos += 1
+        medio = (izquierda + derecha) // 2
+        
+        if arr[medio] == objetivo:
+            return medio, pasos
+        elif arr[medio] < objetivo:
+            izquierda = medio + 1
+        else:
+            derecha = medio - 1
+    
+    return -1, pasos
+
+# Ejemplo de uso
+datos = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23]
+resultado, iteraciones = busqueda_binaria(datos, 13)
+print(f"Elemento encontrado en índice: {resultado}")
+print(f"Iteraciones realizadas: {iteraciones}")
+print(f"Complejidad: O(log {len(datos)}) = O({iteraciones})")</textarea>
+                    <button class="run-btn" onclick="runAlgo()" style="background: var(--math);">▶ Ejecutar</button>
+                </div>
+                
+                <div class="output" id="algoOutput">
+                    <div style="color: rgba(255,255,255,0.3); font-size: 0.8rem; margin-bottom: 1rem;">-- Output</div>
+                    <div id="algoResult" style="color: #c3e88d; line-height: 1.8;">
+                        Presiona "Ejecutar" para ver el análisis del algoritmo...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Math Playground -->
+            <div id="playground-math" class="playground-container" style="display: none;">
+                <div class="editor">
+                    <div class="editor-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span style="margin-left: 1rem; color: rgba(255,255,255,0.5); font-size: 0.8rem;">calculo.py</span>
+                    </div>
+                    <textarea class="code-input" id="mathInput" spellcheck="false"># Cálculo de complejidad temporal y notación Big O
+import math
+
+def analizar_complejidad(n):
+    resultados = {
+        'O(1)': 1,
+        'O(log n)': math.log2(n),
+        'O(n)': n,
+        'O(n log n)': n * math.log2(n),
+        'O(n²)': n ** 2,
+        'O(2^n)': 2 ** n if n <= 20 else float('inf')
+    }
+    return resultados
+
+n = 1000
+print(f"Análisis para n = {n}:")
+print("-" * 40)
+for notacion, valor in analizar_complejidad(n).items():
+    if valor != float('inf'):
+        print(f"{notacion:12} = {valor:,.2f}")
+    else:
+        print(f"{notacion:12} = ∞ (demasiado grande)")</textarea>
+                    <button class="run-btn" onclick="runMath()" style="background: var(--math);">▶ Calcular</button>
+                </div>
+                
+                <div class="math-viz" id="mathOutput">
+                    <div style="color: rgba(255,255,255,0.3); font-size: 0.8rem; margin-bottom: 1rem;">-- Visualización Matemática</div>
+                    <div class="formula-box">
+                        f(n) = O(g(n)) ⟺ ∃c,n₀: f(n) ≤ c·g(n) ∀n ≥ n₀
+                    </div>
+                    <div id="mathResult" style="color: #a6accd; text-align: left; width: 100%; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+                        Presiona "Calcular" para ver el análisis de complejidad...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracker -->
+    <section class="progress-section">
+        <h3 style="margin-bottom: 1rem;">📊 Tu Progreso de Aprendizaje</h3>
+        <p style="color: rgba(255,255,255,0.6); margin-bottom: 1rem;">Completa los módulos para dominar el stack completo</p>
+        
+        <div style="display: grid; gap: 1.5rem; margin-top: 2rem;">
+            <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>🗄️ Bases de Datos</span>
+                    <span style="color: var(--database);">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%; background: linear-gradient(90deg, var(--database), var(--primary));" data-progress="0"></div>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>📐 Matemáticas Computacionales</span>
+                    <span style="color: var(--math);">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%; background: linear-gradient(90deg, var(--math), var(--secondary));" data-progress="0"></div>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>💻 Programación</span>
+                    <span style="color: var(--primary);">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%; background: linear-gradient(90deg, var(--primary), var(--accent));" data-progress="0"></div>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>📊 Análisis de Sistemas</span>
+                    <span style="color: var(--secondary);">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%; background: linear-gradient(90deg, var(--secondary), var(--accent));" data-progress="0"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Roadmap -->
+    <section id="roadmap">
+        <div class="section-header">
+            <h2>🗺️ Roadmap Completo al Profesional</h2>
+            <p>Ruta integrada de 24 meses cubriendo matemáticas, bases de datos y desarrollo</p>
+        </div>
+        
+        <div class="roadmap">
+            <div class="roadmap-line"></div>
+            
+            <div class="roadmap-item">
+                <div class="roadmap-content">
+                    <h3>Meses 1-3: Fundamentos Matemáticos y Lógica</h3>
+                    <p>Lógica proposicional, teoría de conjuntos, álgebra básica y pensamiento computacional. Introducción a Python y algoritmos simples.</p>
+                </div>
+                <div class="roadmap-dot" style="background: var(--math);"></div>
+                <div style="width: 45%;"></div>
+            </div>
+            
+            <div class="roadmap-item">
+                <div style="width: 45%;"></div>
+                <div class="roadmap-dot" style="background: var(--database);"></div>
+                <div class="roadmap-content">
+                    <h3>Meses 4-6: Bases de Datos Relacionales</h3>
+                    <p>Modelado ER, SQL básico, normalización, joins y diseño de esquemas. PostgreSQL/MySQL práctico.</p>
+                </div>
+            </div>
+            
+            <div class="roadmap-item">
+                <div class="roadmap-content">
+                    <h3>Meses 7-9: Estructuras Discretas y Algoritmos</h3>
+                    <p>Grafos, árboles, complejidad Big O, recursión, ordenamiento y búsqueda. Estructuras de datos en profundidad.</p>
+                </div>
+                <div class="roadmap-dot" style="background: var(--primary);"></div>
+                <div style="width: 45%;"></div>
+            </div>
+            
+            <div class="roadmap-item">
+                <div style="width: 45%;"></div>
+                <div class="roadmap-dot" style="background: var(--secondary);"></div>
+                <div class="roadmap-content">
+                    <h3>Meses 10-14: Desarrollo Full-Stack</h3>
+                    <p>JavaScript, React, Node.js, APIs REST, autenticación y testing. Proyectos integradores con base de datos.</p>
+                </div>
+            </div>
+            
+            <div class="roadmap-item">
+                <div class="roadmap-content">
+                    <h3>Meses 15-18: Estadística y Análisis de Datos</h3>
+                    <p>Probabilidad, inferencia estadística, álgebra lineal aplicada, introducción a ML y data warehousing.</p>
+                </div>
+                <div class="roadmap-dot" style="background: var(--math); box-shadow: 0 0 20px rgba(255, 190, 11, 0.5);"></div>
+                <div style="width: 45%;"></div>
+            </div>
+            
+            <div class="roadground-item">
+                <div style="width: 45%;"></div>
+                <div class="roadmap-dot" style="background: var(--database); box-shadow: 0 0 20px rgba(6, 255, 165, 0.5);"></div>
+                <div class="roadmap-content">
+                    <h3>Meses 19-21: Bases de Datos Avanzadas y NoSQL</h3>
+                    <p>Optimización, sharding, replicación, MongoDB, Redis, Cassandra. Diseño de sistemas distribuidos.</p>
+                </div>
+            </div>
+            
+            <div class="roadmap-item">
+                <div class="roadmap-content">
+                    <h3>Meses 22-24: Arquitectura y Especialización</h3>
+                    <p>Microservicios, cloud computing, ML avanzado, criptografía o blockchain. Proyecto final profesional.</p>
+                </div>
+                <div class="roadmap-dot" style="background: var(--accent); box-shadow: 0 0 20px rgba(131, 56, 236, 0.5);"></div>
+                <div style="width: 45%;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo" style="margin-bottom: 1rem;">&lt;DevMaster /&gt;</div>
+            <p style="color: rgba(255,255,255,0.5); margin-bottom: 2rem;">Formando profesionales integrales en tecnología</p>
+            <p style="color: rgba(255,255,255,0.3); font-size: 0.9rem;">© 2026 DevMaster Academy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching
+        function switchTab(section, level) {
+            const buttons = document.querySelectorAll(`#${section === 'math' ? 'matematicas' : section === 'db' ? 'basesdatos' : section === 'prog' ? 'programacion' : 'sistemas'} .tab-btn`);
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const grids = document.querySelectorAll(`[id^="${section}-"]`);
+            grids.forEach(grid => grid.classList.remove('active'));
+            document.getElementById(`${section}-${level}`).classList.add('active');
+            
+            updateProgress();
+        }
+        
+        // Playground Switching
+        function switchPlayground(type) {
+            document.querySelectorAll('.playground-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.querySelectorAll('[id^="playground-"]').forEach(pg => pg.style.display = 'none');
+            document.getElementById(`playground-${type}`).style.display = 'grid';
+        }
+        
+        // SQL Execution Simulation
+        function runSQL() {
+            const result = document.getElementById('sqlResult');
+            result.innerHTML = '<span style="color: var(--database);">Ejecutando consulta...</span>';
+            
+            setTimeout(() => {
+                result.innerHTML = `
+                    <table style="width: 100%; border-collapse: collapse; color: #a6accd;">
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--database);">
+                            <th style="text-align: left; padding: 0.5rem;">nombre</th>
+                            <th style="text-align: left; padding: 0.5rem;">email</th>
+                            <th style="text-align: left; padding: 0.5rem;">total_ordenes</th>
+                            <th style="text-align: left; padding: 0.5rem;">gasto_total</th>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.5rem;">Ana Martínez</td>
+                            <td style="padding: 0.5rem;">ana@corp.com</td>
+                            <td style="padding: 0.5rem;">12</td>
+                            <td style="padding: 0.5rem;">$5,230.00</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.5rem;">Luis Torres</td>
+                            <td style="padding: 0.5rem;">luis@tech.com</td>
+                            <td style="padding: 0.5rem;">8</td>
+                            <td style="padding: 0.5rem;">$3,450.50</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.5rem;">Sofia Chen</td>
+                            <td style="padding: 0.5rem;">sofia@dev.com</td>
+                            <td style="padding: 0.5rem;">15</td>
+                            <td style="padding: 0.5rem;">$8,120.75</td>
+                        </tr>
+                    </table>
+                    <br><span style="color: #676e95;">-- 3 rows returned (0.045s) | Índice utilizado: idx_cliente_fecha</span>
+                `;
+            }, 800);
+        }
+        
+        // Algorithm Execution
+        function runAlgo() {
+            const result = document.getElementById('algoResult');
+            result.innerHTML = '<span style="color: var(--math);">Analizando algoritmo...</span>';
+            
+            setTimeout(() => {
+                result.innerHTML = `
+                    <span style="color: #82aaff;">Elemento encontrado en índice: 6</span><br>
+                    <span style="color: #c3e88d;">Iteraciones realizadas: 3</span><br>
+                    <span style="color: #ffcb6b;">Complejidad: O(log 12) ≈ O(3.58)</span><br><br>
+                    <span style="color: #676e95;">// Traza de ejecución:</span><br>
+                    <span style="color: #a6accd;">Paso 1: medio=5, arr[5]=11 < 13 → izquierda=6</span><br>
+                    <span style="color: #a6accd;">Paso 2: medio=8, arr[8]=17 > 13 → derecha=7</span><br>
+                    <span style="color: #a6accd;">Paso 3: medio=6, arr[6]=13 == 13 → ¡Encontrado!</span><br><br>
+                    <span style="color: var(--math);">✓ Eficiencia verificada: O(log n)</span>
+                `;
+            }, 1000);
+        }
+        
+        // Math Execution
+        function runMath() {
+            const result = document.getElementById('mathResult');
+            result.innerHTML = '<span style="color: var(--math);">Calculando...</span>';
+            
+            setTimeout(() => {
+                result.innerHTML = `
+                    <div style="margin-bottom: 1rem;">Análisis para n = 1,000:</div>
+                    <div style="display: grid; gap: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; padding: 0.3rem; background: rgba(0,0,0,0.3); border-radius: 5px;">
+                            <span style="color: var(--database);">O(1)</span>
+                            <span>1</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0.3rem; background: rgba(0,0,0,0.3); border-radius: 5px;">
+                            <span style="color: var(--primary);">O(log n)</span>
+                            <span>9.97</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0.3rem; background: rgba(0,0,0,0.3); border-radius: 5px;">
+                            <span style="color: var(--accent);">O(n)</span>
+                            <span>1,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0.3rem; background: rgba(0,0,0,0.3); border-radius: 5px;">
+                            <span style="color: var(--math);">O(n log n)</span>
+                            <span>9,966</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0.3rem; background: rgba(0,0,0,0.3); border-radius: 5px;">
+                            <span style="color: var(--secondary);">O(n²)</span>
+                            <span>1,000,000</span>
+                        </div>
+                    </div>
+                    <br>
+                    <div style="color: #676e95; font-size: 0.8rem;">
+                        Comparación: O(log n) es ~100x más rápido que O(n) para n=1000
+                    </div>
+                `;
+            }, 800);
+        }
+        
+        // Progress Animation
+        function updateProgress() {
+            const bars = document.querySelectorAll('.progress-fill');
+            bars.forEach((bar, index) => {
+                const randomProgress = Math.floor(Math.random() * 30) + 10;
+                bar.style.width = randomProgress + '%';
+                bar.parentElement.previousElementSibling.querySelector('span:last-child').textContent = randomProgress + '%';
+            });
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(updateProgress, 500);
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+        
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.card, .roadmap-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
