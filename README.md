@@ -55,7 +55,9 @@ No requiere instalación ni dependencias externas. Funciona completamente en el 
 - **Interactividad**: Tabs dinámicos, playground de código simulado, animaciones CSS/JS
 
 ## 📁 Estructura del Proyecto
-
+devmaster-academy/
+├── index.html          # Página principal completa
+└── README.md           # Este archivo
 ## 🎨 Paleta de Colores
 
 | Color | Hex | Uso |
