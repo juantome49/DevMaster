@@ -32,7 +32,6 @@
             overflow-x: hidden;
         }
         
-        /* Animated Background */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -60,7 +59,6 @@
             50% { transform: translate(-5%, -5%) rotate(5deg); }
         }
         
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -118,7 +116,6 @@
             color: var(--primary);
         }
         
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -211,7 +208,6 @@
             box-shadow: 0 10px 30px rgba(6, 255, 165, 0.3);
         }
         
-        /* Floating Elements */
         .floating-code {
             position: absolute;
             font-family: 'JetBrains Mono', monospace;
@@ -226,7 +222,6 @@
             50% { transform: translateY(-20px) rotate(2deg); opacity: 0.6; }
         }
         
-        /* Section Styles */
         section {
             padding: 6rem 5%;
             max-width: 1400px;
@@ -253,7 +248,6 @@
             margin: 0 auto;
         }
         
-        /* Level Tabs */
         .level-tabs {
             display: flex;
             justify-content: center;
@@ -285,7 +279,6 @@
             color: var(--light);
         }
         
-        /* Content Grid */
         .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -396,7 +389,111 @@
         .difficulty.intermediate { background: rgba(255, 190, 11, 0.2); color: var(--math); }
         .difficulty.advanced { background: rgba(255, 0, 110, 0.2); color: var(--secondary); }
         
-        /* Interactive Playground */
+        /* Activity Section Styles */
+        .activity-section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(10, 10, 15, 1));
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+        
+        .activity-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .activity-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .exercise-list {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .exercise-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .exercise-item:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateX(5px);
+        }
+        
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .exercise-name {
+            font-weight: 600;
+            color: var(--light);
+        }
+        
+        .exercise-type {
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .type-practical { background: rgba(0, 212, 255, 0.2); color: var(--primary); }
+        .type-theory { background: rgba(255, 190, 11, 0.2); color: var(--math); }
+        .type-project { background: rgba(6, 255, 165, 0.2); color: var(--database); }
+        .type-challenge { background: rgba(255, 0, 110, 0.2); color: var(--secondary); }
+        
+        .exercise-desc {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .exercise-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .start-btn {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .start-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
         .playground-section {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(10, 10, 15, 1));
             border-radius: 30px;
@@ -505,7 +602,6 @@
             box-shadow: 0 5px 20px rgba(6, 255, 165, 0.3);
         }
         
-        /* Math Visualization */
         .math-viz {
             background: #0d0d15;
             border-radius: 15px;
@@ -529,7 +625,6 @@
             color: var(--math);
         }
         
-        /* Progress Section */
         .progress-section {
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 110, 0.1));
             border-radius: 20px;
@@ -555,7 +650,6 @@
             border-radius: 10px;
         }
         
-        /* Roadmap */
         .roadmap {
             position: relative;
             padding: 2rem 0;
@@ -603,7 +697,6 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
         }
         
-        /* SQL Schema Visualizer */
         .schema-viz {
             background: #1e1e2e;
             border-radius: 15px;
@@ -651,7 +744,6 @@
         .pk { color: var(--math); font-weight: bold; }
         .fk { color: var(--secondary); }
         
-        /* Footer */
         footer {
             background: var(--dark);
             padding: 3rem 5%;
@@ -665,7 +757,6 @@
             margin: 0 auto;
         }
         
-        /* Syntax Highlighting */
         .keyword { color: #c792ea; }
         .string { color: #c3e88d; }
         .function { color: #82aaff; }
@@ -673,7 +764,6 @@
         .number { color: #f78c6c; }
         .operator { color: #89ddff; }
         
-        /* Mobile */
         .mobile-menu {
             display: none;
             flex-direction: column;
@@ -711,7 +801,6 @@
             }
         }
         
-        /* Animations */
         .pulse {
             animation: pulse 2s infinite;
         }
@@ -721,26 +810,81 @@
             50% { opacity: 0.7; }
         }
         
-        .math-symbol {
-            font-size: 3rem;
-            color: var(--math);
-            opacity: 0.3;
-            position: absolute;
-            animation: float 10s infinite ease-in-out;
+        /* Quiz Styles */
+        .quiz-container {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .quiz-question {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+        
+        .quiz-options {
+            display: grid;
+            gap: 0.5rem;
+        }
+        
+        .quiz-option {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quiz-option:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .quiz-option.correct {
+            background: rgba(6, 255, 165, 0.2);
+            border-color: var(--database);
+        }
+        
+        .quiz-option.incorrect {
+            background: rgba(255, 0, 110, 0.2);
+            border-color: var(--secondary);
+        }
+        
+        /* Module Counter */
+        .module-counter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .counter-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .counter-item span {
+            color: var(--primary);
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
     <div class="bg-animation"></div>
     
-    <!-- Floating Elements -->
     <div class="floating-code" style="top: 20%; left: 10%;">&lt;code&gt;</div>
     <div class="floating-code" style="top: 60%; left: 85%; animation-delay: 2s;">∫f(x)dx</div>
     <div class="floating-code" style="top: 40%; left: 90%; animation-delay: 4s;">SELECT *</div>
     <div class="floating-code" style="top: 80%; left: 15%; animation-delay: 6s;">O(n log n)</div>
     <div class="floating-code" style="top: 30%; left: 5%; animation-delay: 8s;">Σx²</div>
 
-    <!-- Navigation -->
     <nav>
         <div class="logo">&lt;DevMaster /&gt;</div>
         <ul class="nav-links">
@@ -757,7 +901,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Domina la <span>Programación</span>, <span>Bases de Datos</span> y <span>Matemáticas</span></h1>
@@ -777,6 +920,13 @@
             <p>Matemáticas discretas, cálculo, álgebra lineal y estadística aplicadas a la programación</p>
         </div>
         
+        <div class="module-counter">
+            <div class="counter-item">📚 <span>12</span> Módulos</div>
+            <div class="counter-item">✏️ <span>48</span> Ejercicios</div>
+            <div class="counter-item">🎯 <span>24</span> Desafíos</div>
+            <div class="counter-item">🏆 <span>6</span> Proyectos</div>
+        </div>
+        
         <div class="level-tabs">
             <button class="tab-btn active" onclick="switchTab('math', 'basic')">Básico</button>
             <button class="tab-btn" onclick="switchTab('math', 'intermediate')">Intermedio</button>
@@ -787,7 +937,7 @@
         <div id="math-basic" class="content-grid active">
             <div class="card card-math">
                 <div class="card-icon">🔢</div>
-                <h3>Lógica Matemática</h3>
+                <h3>Módulo 1: Lógica Matemática</h3>
                 <p>Proposiciones, conectivos lógicos, tablas de verdad, cuantificadores y razonamiento deductivo.</p>
                 <ul>
                     <li>Operadores: ∧, ∨, ¬, →, ↔</li>
@@ -795,11 +945,11 @@
                     <li>Leyes de De Morgan</li>
                     <li>Inferencia lógica</li>
                 </ul>
-                <span class="difficulty basic">Básico</span>
+                <span class="difficulty basic">Básico • 8 lecciones</span>
             </div>
             <div class="card card-math">
                 <div class="card-icon">🔟</div>
-                <h3>Sistemas Numéricos</h3>
+                <h3>Módulo 2: Sistemas Numéricos</h3>
                 <p>Binario, octal, hexadecimal, conversiones entre bases y aritmética computacional.</p>
                 <ul>
                     <li>Binario ↔ Decimal</li>
@@ -807,11 +957,11 @@
                     <li>Complemento a 2</li>
                     <li>Operaciones bitwise</li>
                 </ul>
-                <span class="difficulty basic">Básico</span>
+                <span class="difficulty basic">Básico • 6 lecciones</span>
             </div>
             <div class="card card-math">
                 <div class="card-icon">📊</div>
-                <h3>Teoría de Conjuntos</h3>
+                <h3>Módulo 3: Teoría de Conjuntos</h3>
                 <p>Conjuntos, subconjuntos, operaciones (unión, intersección, diferencia) y diagramas de Venn.</p>
                 <ul>
                     <li>Notación matemática</li>
@@ -819,11 +969,11 @@
                     <li>Relaciones y funciones básicas</li>
                     <li>Aplicación en SQL JOINs</li>
                 </ul>
-                <span class="difficulty basic">Básico</span>
+                <span class="difficulty basic">Básico • 7 lecciones</span>
             </div>
             <div class="card card-math">
                 <div class="card-icon">📈</div>
-                <h3>Funciones y Gráficas</h3>
+                <h3>Módulo 4: Funciones y Gráficas</h3>
                 <p>Funciones lineales, cuadráticas, exponenciales y logarítmicas con aplicaciones en programación.</p>
                 <ul>
                     <li>f(x) = mx + b</li>
@@ -831,7 +981,53 @@
                     <li>Logaritmos en complejidad</li>
                     <li>Interpolación básica</li>
                 </ul>
-                <span class="difficulty basic">Básico</span>
+                <span class="difficulty basic">Básico • 5 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES MATEMÁTICAS BÁSICAS -->
+        <div id="math-basic-activities" class="activity-section" style="display: block;">
+            <div class="activity-header">
+                <div class="activity-icon">📝</div>
+                <div class="activity-title">Actividades del Nivel Básico</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 1: Tablas de Verdad Interactivas</span>
+                        <span class="exercise-type type-practical">Práctico</span>
+                    </div>
+                    <div class="exercise-desc">Construye tablas de verdad para expresiones lógicas complejas (p ∧ q) → (r ∨ ¬s)</div>
+                    <div class="exercise-meta">⏱️ 30 min • 🎯 10 puntos • 📊 Lógica Proposicional</div>
+                    <button class="start-btn" onclick="startActivity('truth-tables')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 2: Conversor de Bases Numéricas</span>
+                        <span class="exercise-type type-project">Proyecto</span>
+                    </div>
+                    <div class="exercise-desc">Desarrolla una calculadora que convierta entre binario, decimal, octal y hexadecimal</div>
+                    <div class="exercise-meta">⏱️ 45 min • 🎯 25 puntos • 🔢 Sistemas Numéricos</div>
+                    <button class="start-btn" onclick="startActivity('base-converter')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Desafío 1: Operaciones Bitwise</span>
+                        <span class="exercise-type type-challenge">Desafío</span>
+                    </div>
+                    <div class="exercise-desc">Implementa máscaras de bits para permisos de usuario usando AND, OR, XOR, NOT, shifts</div>
+                    <div class="exercise-meta">⏱️ 60 min • 🎯 50 puntos • ⚡ Nivel Difícil</div>
+                    <button class="start-btn" onclick="startActivity('bitwise-challenge')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Quiz: Diagramas de Venn aplicados a SQL</span>
+                        <span class="exercise-type type-theory">Teórico</span>
+                    </div>
+                    <div class="exercise-desc">Relaciona operaciones de conjuntos con tipos de JOINs en bases de datos</div>
+                    <div class="exercise-meta">⏱️ 20 min • 🎯 15 puntos • 🧠 Conceptual</div>
+                    <button class="start-btn" onclick="startQuiz('venn-sql')">Iniciar Quiz →</button>
+                </div>
             </div>
         </div>
 
@@ -839,7 +1035,7 @@
         <div id="math-intermediate" class="content-grid">
             <div class="card card-math">
                 <div class="card-icon">🧮</div>
-                <h3>Matemáticas Discretas</h3>
+                <h3>Módulo 5: Matemáticas Discretas</h3>
                 <p>Relaciones, funciones, recursión, inducción matemática y combinatoria esencial para algoritmos.</p>
                 <ul>
                     <li>Relaciones de equivalencia</li>
@@ -847,11 +1043,11 @@
                     <li>Permutaciones y combinaciones</li>
                     <li>Principio del palomar</li>
                 </ul>
-                <span class="difficulty intermediate">Intermedio</span>
+                <span class="difficulty intermediate">Intermedio • 10 lecciones</span>
             </div>
             <div class="card card-math">
                 <div class="card-icon">📉</div>
-                <h3>Probabilidad y Estadística</h3>
+                <h3>Módulo 6: Probabilidad y Estadística</h3>
                 <p>Probabilidad condicional, distribuciones, estadística descriptiva e inferencial para Data Science.</p>
                 <ul>
                     <li>Bayes: P(A|B) = P(B|A)P(A)/P(B)</li>
@@ -859,11 +1055,11 @@
                     <li>Media, mediana, moda, desviación</li>
                     <li>Correlación y regresión</li>
                 </ul>
-                <span class="difficulty intermediate">Intermedio</span>
+                <span class="difficulty intermediate">Intermedio • 12 lecciones</span>
             </div>
             <div class="card card-math">
                 <div class="card-icon">📐</div>
-                <h3>Álgebra Lineal</h3>
+                <h3>Módulo 7: Álgebra Lineal</h3>
                 <p>Vectores, matrices, operaciones matriciales y aplicaciones en gráficos computacionales y ML.</p>
                 <ul>
                     <li>Multiplicación de matrices</li>
@@ -871,11 +1067,11 @@
                     <li>Sistemas de ecuaciones lineales</li>
                     <li>Transformaciones lineales</li>
                 </ul>
-                <span class="difficulty intermediate">Intermedio</span>
+                <span class="difficulty intermediate">Intermedio • 14 lecciones</span>
             </div>
             <div class="card card-math">
                 <div class="card-icon">🌳</div>
-                <h3>Teoría de Grafos</h3>
+                <h3>Módulo 8: Teoría de Grafos</h3>
                 <p>Grafos dirigidos/no dirigidos, árboles, recorridos (BFS/DFS) y algoritmos de camino mínimo.</p>
                 <ul>
                     <li>Matriz de adyacencia</li>
@@ -883,7 +1079,53 @@
                     <li>Algoritmo de Dijkstra</li>
                     <li>Coloreo de grafos</li>
                 </ul>
-                <span class="difficulty intermediate">Intermedio</span>
+                <span class="difficulty intermediate">Intermedio • 11 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES MATEMÁTICAS INTERMEDIAS -->
+        <div id="math-intermediate-activities" class="activity-section" style="display: none;">
+            <div class="activity-header">
+                <div class="activity-icon">🔬</div>
+                <div class="activity-title">Actividades del Nivel Intermedio</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Proyecto 1: Simulador de Probabilidades Bayes</span>
+                        <span class="exercise-type type-project">Proyecto</span>
+                    </div>
+                    <div class="exercise-desc">Implementa un clasificador bayesiano naive para filtrado de spam con cálculo de probabilidades condicionales</div>
+                    <div class="exercise-meta">⏱️ 90 min • 🎯 75 puntos • 📊 Machine Learning Básico</div>
+                    <button class="start-btn" onclick="startActivity('bayes-classifier')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 3: Transformaciones Matriciales 2D/3D</span>
+                        <span class="exercise-type type-practical">Práctico</span>
+                    </div>
+                    <div class="exercise-desc">Aplica rotaciones, escalado y traslación usando matrices de transformación homogéneas</div>
+                    <div class="exercise-meta">⏱️ 60 min • 🎯 40 puntos • 🎮 Gráficos Computacionales</div>
+                    <button class="start-btn" onclick="startActivity('matrix-transforms')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Desafío 2: Algoritmo de Dijkstra Visual</span>
+                        <span class="exercise-type type-challenge">Desafío</span>
+                    </div>
+                    <div class="exercise-desc">Implementa el algoritmo de camino mínimo con visualización paso a paso en un grafo interactivo</div>
+                    <div class="exercise-meta">⏱️ 120 min • 🎯 100 puntos • 🏆 Nivel Experto</div>
+                    <button class="start-btn" onclick="startActivity('dijkstra-visual')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 4: Inducción Matemática en Algoritmos</span>
+                        <span class="exercise-type type-theory">Teórico</span>
+                    </div>
+                    <div class="exercise-desc">Demuestra la corrección de algoritmos recursivos usando inducción matemática formal</div>
+                    <div class="exercise-meta">⏱️ 45 min • 🎯 35 puntos • ✍️ Demostraciones</div>
+                    <button class="start-btn" onclick="startActivity('induction-proofs')">Comenzar →</button>
+                </div>
             </div>
         </div>
 
@@ -891,7 +1133,7 @@
         <div id="math-advanced" class="content-grid">
             <div class="card card-math">
                 <div class="card-icon">∫</div>
-                <h3>Cálculo Diferencial e Integral</h3>
+                <h3>Módulo 9: Cálculo Diferencial e Integral</h3>
                 <p>Límites, derivadas, integrales y aplicaciones en optimización de algoritmos y machine learning.</p>
                 <ul>
                     <li>Derivadas parciales</li>
@@ -899,11 +1141,11 @@
                     <li>Integrales para probabilidad</li>
                     <li>Series de Taylor</li>
                 </ul>
-                <span class="difficulty advanced">Avanzado</span>
+                <span class="difficulty advanced">Avanzado • 16 lecciones</span>
             </div>
             <div class="card card-math">
                 <div class="card-icon">🎯</div>
-                <h3>Análisis de Algoritmos</h3>
+                <h3>Módulo 10: Análisis de Algoritmos</h3>
                 <p>Notación Big O, complejidad temporal y espacial, análisis amortizado y optimización matemática.</p>
                 <ul>
                     <li>O(1), O(log n), O(n), O(n²)</li>
@@ -911,11 +1153,11 @@
                     <li>Análisis de peor/caso promedio</li>
                     <li>Complejidad espacial</li>
                 </ul>
-                <span class="difficulty advanced">Avanzado</span>
+                <span class="difficulty advanced">Avanzado • 12 lecciones</span>
             </div>
             <div class="card card-math">
                 <div class="card-icon">🔐</div>
-                <h3>Criptografía Matemática</h3>
+                <h3>Módulo 11: Criptografía Matemática</h3>
                 <p>Aritmética modular, teoría de números, funciones hash y algoritmos de encriptación RSA/ECC.</p>
                 <ul>
                     <li>Congruencias modulares</li>
@@ -923,11 +1165,11 @@
                     <li>Teorema de Euler-Fermat</li>
                     <li>Curvas elípticas</li>
                 </ul>
-                <span class="difficulty advanced">Avanzado</span>
+                <span class="difficulty advanced">Avanzado • 14 lecciones</span>
             </div>
             <div class="card card-math">
                 <div class="card-icon">🧠</div>
-                <h3>Matemáticas para Machine Learning</h3>
+                <h3>Módulo 12: Matemáticas para Machine Learning</h3>
                 <p>Cálculo vectorial, optimización convexa, descenso del gradiente y álgebra tensorial.</p>
                 <ul>
                     <li>Jacobians y Hessians</li>
@@ -935,7 +1177,53 @@
                     <li>PCA y descomposición SVD</li>
                     <li>Redes neuronales: backpropagation</li>
                 </ul>
-                <span class="difficulty advanced">Avanzado</span>
+                <span class="difficulty advanced">Avanzado • 18 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES MATEMÁTICAS AVANZADAS -->
+        <div id="math-advanced-activities" class="activity-section" style="display: none;">
+            <div class="activity-header">
+                <div class="activity-icon">🚀</div>
+                <div class="activity-title">Actividades del Nivel Avanzado</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Proyecto Final: Implementación de RSA desde Cero</span>
+                        <span class="exercise-type type-project">Proyecto</span>
+                    </div>
+                    <div class="exercise-desc">Construye un sistema criptográfico completo con generación de claves, encriptación y firma digital</div>
+                    <div class="exercise-meta">⏱️ 180 min • 🎯 150 puntos • 🔐 Criptografía</div>
+                    <button class="start-btn" onclick="startActivity('rsa-implementation')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Desafío 3: Optimización de Redes Neuronales</span>
+                        <span class="exercise-type type-challenge">Desafío</span>
+                    </div>
+                    <div class="exercise-desc">Implementa backpropagation manual con cálculo de gradientes, momentum y regularización L2</div>
+                    <div class="exercise-meta">⏱️ 240 min • 🎯 200 puntos • 🧠 Deep Learning</div>
+                    <button class="start-btn" onclick="startActivity('nn-optimization')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 5: Análisis Amortizado de Estructuras</span>
+                        <span class="exercise-type type-theory">Teórico</span>
+                    </div>
+                    <div class="exercise-desc">Analiza la complejidad amortizada de tablas hash dinámicas y heaps binomiales</div>
+                    <div class="exercise-meta">⏱️ 90 min • 🎯 80 puntos • 📈 Análisis Avanzado</div>
+                    <button class="start-btn" onclick="startActivity('amortized-analysis')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Investigación: Aplicaciones de SVD en Compresión</span>
+                        <span class="exercise-type type-project">Investigación</span>
+                    </div>
+                    <div class="exercise-desc">Aplica descomposición de valores singulares para compresión de imágenes y reducción de dimensionalidad</div>
+                    <div class="exercise-meta">⏱️ 120 min • 🎯 120 puntos • 🔬 Álgebra Aplicada</div>
+                    <button class="start-btn" onclick="startActivity('svd-research')">Comenzar →</button>
+                </div>
             </div>
         </div>
     </section>
@@ -945,6 +1233,13 @@
         <div class="section-header">
             <h2>🗄️ Bases de Datos y Gestión de Información</h2>
             <p>Diseño, implementación, optimización y administración de bases de datos relacionales y NoSQL</p>
+        </div>
+        
+        <div class="module-counter">
+            <div class="counter-item">📚 <span>12</span> Módulos</div>
+            <div class="counter-item">✏️ <span>56</span> Ejercicios</div>
+            <div class="counter-item">🎯 <span>28</span> Desafíos</div>
+            <div class="counter-item">🏆 <span>8</span> Proyectos</div>
         </div>
         
         <div class="level-tabs">
@@ -957,7 +1252,7 @@
         <div id="db-basic" class="content-grid active">
             <div class="card card-db">
                 <div class="card-icon">📋</div>
-                <h3>Fundamentos de Bases de Datos</h3>
+                <h3>Módulo 1: Fundamentos de Bases de Datos</h3>
                 <p>Conceptos básicos, modelos de datos, entidades, atributos y relaciones. Introducción al modelo relacional.</p>
                 <ul>
                     <li>Tablas, filas y columnas</li>
@@ -965,11 +1260,11 @@
                     <li>Integridad referencial</li>
                     <li>Normalización (1FN, 2FN, 3FN)</li>
                 </ul>
-                <span class="difficulty basic">Básico</span>
+                <span class="difficulty basic">Básico • 8 lecciones</span>
             </div>
             <div class="card card-db">
                 <div class="card-icon">🔍</div>
-                <h3>SQL Básico (CRUD)</h3>
+                <h3>Módulo 2: SQL Básico (CRUD)</h3>
                 <p>Consultas fundamentales: SELECT, INSERT, UPDATE, DELETE. Filtrado con WHERE y ordenamiento.</p>
                 <ul>
                     <li>SELECT * FROM tabla</li>
@@ -977,11 +1272,11 @@
                     <li>ORDER BY, LIMIT</li>
                     <li>Funciones agregadas básicas</li>
                 </ul>
-                <span class="difficulty basic">Básico</span>
+                <span class="difficulty basic">Básico • 10 lecciones</span>
             </div>
             <div class="card card-db">
                 <div class="card-icon">🔗</div>
-                <h3>JOINs y Relaciones</h3>
+                <h3>Módulo 3: JOINs y Relaciones</h3>
                 <p>Combinación de tablas: INNER JOIN, LEFT JOIN, RIGHT JOIN. Cardinalidad de relaciones.</p>
                 <ul>
                     <li>1:1, 1:N, N:M</li>
@@ -989,11 +1284,11 @@
                     <li>Tablas puente/pivot</li>
                     <li>Self-joins</li>
                 </ul>
-                <span class="difficulty basic">Básico</span>
+                <span class="difficulty basic">Básico • 9 lecciones</span>
             </div>
             <div class="card card-db">
                 <div class="card-icon">🛠️</div>
-                <h3>Diseño con Diagramas ER</h3>
+                <h3>Módulo 4: Diseño con Diagramas ER</h3>
                 <p>Modelado entidad-relación, notación Crow's Foot, transformación a modelo relacional.</p>
                 <ul>
                     <li>Entidades fuertes y débiles</li>
@@ -1001,7 +1296,53 @@
                     <li>Herramientas: MySQL Workbench</li>
                     <li>De diagrama a tablas SQL</li>
                 </ul>
-                <span class="difficulty basic">Básico</span>
+                <span class="difficulty basic">Básico • 7 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES BASES DE DATOS BÁSICAS -->
+        <div id="db-basic-activities" class="activity-section" style="display: block;">
+            <div class="activity-header">
+                <div class="activity-icon">🗃️</div>
+                <div class="activity-title">Actividades del Nivel Básico</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 1: Diseño de Biblioteca Universitaria</span>
+                        <span class="exercise-type type-project">Proyecto</span>
+                    </div>
+                    <div class="exercise-desc">Crea el modelo ER completo para un sistema de biblioteca: libros, autores, estudiantes, préstamos, multas</div>
+                    <div class="exercise-meta">⏱️ 60 min • 🎯 40 puntos • 📐 Modelado</div>
+                    <button class="start-btn" onclick="startActivity('library-design')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 2: Consultas SQL de E-commerce</span>
+                        <span class="exercise-type type-practical">Práctico</span>
+                    </div>
+                    <div class="exercise-desc">Escribe 20 consultas SQL para reportes de ventas: top productos, clientes frecuentes, inventario bajo</div>
+                    <div class="exercise-meta">⏱️ 45 min • 🎯 35 puntos • 🔍 Queries</div>
+                    <button class="start-btn" onclick="startActivity('sql-ecommerce')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Desafío 1: Normalización de Base de Datos Anómala</span>
+                        <span class="exercise-type type-challenge">Desafío</span>
+                    </div>
+                    <div class="exercise-desc">Toma una tabla no normalizada con redundancias y aplícale 1FN, 2FN y 3FN paso a paso</div>
+                    <div class="exercise-meta">⏱️ 90 min • 🎯 60 puntos • ⚡ Nivel Difícil</div>
+                    <button class="start-btn" onclick="startActivity('normalization-challenge')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Quiz: Cardinalidad y Tipos de JOINs</span>
+                        <span class="exercise-type type-theory">Teórico</span>
+                    </div>
+                    <div class="exercise-desc">Identifica la cardinalidad correcta y selecciona el JOIN apropiado para 15 escenarios de negocio</div>
+                    <div class="exercise-meta">⏱️ 30 min • 🎯 25 puntos • 🧠 Conceptual</div>
+                    <button class="start-btn" onclick="startQuiz('joins-cardinality')">Iniciar Quiz →</button>
+                </div>
             </div>
         </div>
 
@@ -1009,7 +1350,7 @@
         <div id="db-intermediate" class="content-grid">
             <div class="card card-db">
                 <div class="card-icon">⚡</div>
-                <h3>SQL Avanzado y Subconsultas</h3>
+                <h3>Módulo 5: SQL Avanzado y Subconsultas</h3>
                 <p>Subqueries correlacionadas, CTEs (WITH), window functions y consultas recursivas.</p>
                 <ul>
                     <li>ROW_NUMBER(), RANK(), DENSE_RANK()</li>
@@ -1017,11 +1358,11 @@
                     <li>CTEs recursivas</li>
                     <li>PIVOT/UNPIVOT</li>
                 </ul>
-                <span class="difficulty intermediate">Intermedio</span>
+                <span class="difficulty intermediate">Intermedio • 12 lecciones</span>
             </div>
             <div class="card card-db">
                 <div class="card-icon">🚀</div>
-                <h3>Optimización de Consultas</h3>
+                <h3>Módulo 6: Optimización de Consultas</h3>
                 <p>Índices (B-Tree, Hash), planes de ejecución, query tuning y estadísticas.</p>
                 <ul>
                     <li>EXPLAIN ANALYZE</li>
@@ -1029,11 +1370,11 @@
                     <li>Evitar full table scans</li>
                     <li>Particionamiento de tablas</li>
                 </ul>
-                <span class="difficulty intermediate">Intermedio</span>
+                <span class="difficulty intermediate">Intermedio • 10 lecciones</span>
             </div>
             <div class="card card-db">
                 <div class="card-icon">🔐</div>
-                <h3>Seguridad y Transacciones</h3>
+                <h3>Módulo 7: Seguridad y Transacciones</h3>
                 <p>ACID, niveles de aislamiento, control de concurrencia, usuarios y permisos.</p>
                 <ul>
                     <li>BEGIN, COMMIT, ROLLBACK</li>
@@ -1041,11 +1382,11 @@
                     <li>GRANT, REVOKE</li>
                     <li>Encriptación de datos</li>
                 </ul>
-                <span class="difficulty intermediate">Intermedio</span>
+                <span class="difficulty intermediate">Intermedio • 9 lecciones</span>
             </div>
             <div class="card card-db">
                 <div class="card-icon">📊</div>
-                <h3>Procedimientos y Triggers</h3>
+                <h3>Módulo 8: Procedimientos y Triggers</h3>
                 <p>Stored procedures, funciones, triggers, vistas materializadas y eventos programados.</p>
                 <ul>
                     <li>PL/pgSQL, T-SQL</li>
@@ -1053,7 +1394,53 @@
                     <li>Vistas actualizables</li>
                     <li>Cursores</li>
                 </ul>
-                <span class="difficulty intermediate">Intermedio</span>
+                <span class="difficulty intermediate">Intermedio • 11 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES BASES DE DATOS INTERMEDIAS -->
+        <div id="db-intermediate-activities" class="activity-section" style="display: none;">
+            <div class="activity-header">
+                <div class="activity-icon">⚙️</div>
+                <div class="activity-title">Actividades del Nivel Intermedio</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Proyecto 2: Sistema de Reportes con Window Functions</span>
+                        <span class="exercise-type type-project">Proyecto</span>
+                    </div>
+                    <div class="exercise-desc">Crea reportes de ventas con rankings, promedios móviles, comparativas YoY usando OVER, PARTITION, ROW_NUMBER</div>
+                    <div class="exercise-meta">⏱️ 120 min • 🎯 85 puntos • 📊 Analytics</div>
+                    <button class="start-btn" onclick="startActivity('window-functions-reports')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 3: Tuning de Queries Lentas</span>
+                        <span class="exercise-type type-practical">Práctico</span>
+                    </div>
+                    <div class="exercise-desc">Analiza 10 queries problemáticas con EXPLAIN, identifica missing indexes y optimiza hasta mejorar 10x el rendimiento</div>
+                    <div class="exercise-meta">⏱️ 90 min • 🎯 70 puntos • 🚀 Performance</div>
+                    <button class="start-btn" onclick="startActivity('query-tuning')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Desafío 2: Sistema de Auditoría con Triggers</span>
+                        <span class="exercise-type type-challenge">Desafío</span>
+                    </div>
+                    <div class="exercise-desc">Implementa un sistema completo de auditoría: quién, cuándo y qué cambió, con tablas de log y triggers automáticos</div>
+                    <div class="exercise-meta">⏱️ 150 min • 🎯 110 puntos • 🔐 Seguridad</div>
+                    <button class="start-btn" onclick="startActivity('audit-system')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Simulación: Manejo de Deadlocks</span>
+                        <span class="exercise-type type-practical">Simulación</span>
+                    </div>
+                    <div class="exercise-desc">Simula y resuelve 5 escenarios de deadlocks en transacciones concurrentes, aplica niveles de aislamiento apropiados</div>
+                    <div class="exercise-meta">⏱️ 75 min • 🎯 65 puntos • ⚔️ Concurrencia</div>
+                    <button class="start-btn" onclick="startActivity('deadlock-simulation')">Comenzar →</button>
+                </div>
             </div>
         </div>
 
@@ -1061,7 +1448,7 @@
         <div id="db-advanced" class="content-grid">
             <div class="card card-db">
                 <div class="card-icon">🗄️</div>
-                <h3>Bases de Datos NoSQL</h3>
+                <h3>Módulo 9: Bases de Datos NoSQL</h3>
                 <p>MongoDB (documentos), Redis (key-value), Cassandra (columnas), Neo4j (grafos).</p>
                 <ul>
                     <li>Modelado de documentos</li>
@@ -1069,11 +1456,11 @@
                     <li>CAP Theorem</li>
                     <li>CQRS y Event Sourcing</li>
                 </ul>
-                <span class="difficulty advanced">Avanzado</span>
+                <span class="difficulty advanced">Avanzado • 14 lecciones</span>
             </div>
             <div class="card card-db">
                 <div class="card-icon">⚙️</div>
-                <h3>Administración y Alta Disponibilidad</h3>
+                <h3>Módulo 10: Administración y Alta Disponibilidad</h3>
                 <p>Backup/restore, replicación maestro-esclavo, failover automático y clustering.</p>
                 <ul>
                     <li>Streaming replication</li>
@@ -1081,11 +1468,11 @@
                     <li>Load balancing</li>
                     <li>Monitoring: Prometheus/Grafana</li>
                 </ul>
-                <span class="difficulty advanced">Avanzado</span>
+                <span class="difficulty advanced">Avanzado • 12 lecciones</span>
             </div>
             <div class="card card-db">
                 <div class="card-icon">🔍</div>
-                <h3>Data Warehousing y BI</h3>
+                <h3>Módulo 11: Data Warehousing y BI</h3>
                 <p>Modelo estrella y copo de nieve, ETL/ELT, OLAP, columnar storage.</p>
                 <ul>
                     <li>BigQuery, Snowflake, Redshift</li>
@@ -1093,11 +1480,11 @@
                     <li>Agregaciones y rollup</li>
                     <li>Data Lakes</li>
                 </ul>
-                <span class="difficulty advanced">Avanzado</span>
+                <span class="difficulty advanced">Avanzado • 10 lecciones</span>
             </div>
             <div class="card card-db">
                 <div class="card-icon">🧩</div>
-                <h3>Diseño de Sistemas Distribuidos</h3>
+                <h3>Módulo 12: Diseño de Sistemas Distribuidos</h3>
                 <p>Sharding strategies, consistencia eventual, vector clocks, CRDTs y NewSQL.</p>
                 <ul>
                     <li>Consistent hashing</li>
@@ -1105,7 +1492,53 @@
                     <li>Two-phase commit</li>
                     <li>CockroachDB, Spanner</li>
                 </ul>
-                <span class="difficulty advanced">Avanzado</span>
+                <span class="difficulty advanced">Avanzado • 16 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES BASES DE DATOS AVANZADAS -->
+        <div id="db-advanced-activities" class="activity-section" style="display: none;">
+            <div class="activity-header">
+                <div class="activity-icon">🌐</div>
+                <div class="activity-title">Actividades del Nivel Avanzado</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Proyecto Final: Arquitectura Polyglot Persistence</span>
+                        <span class="exercise-type type-project">Proyecto</span>
+                    </div>
+                    <div class="exercise-desc">Diseña un sistema usando PostgreSQL + Redis + MongoDB + Neo4j, cada uno para su caso de uso óptimo</div>
+                    <div class="exercise-meta">⏱️ 300 min • 🎯 250 puntos • 🏆 Arquitectura</div>
+                    <button class="start-btn" onclick="startActivity('polyglot-architecture')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Desafío 3: Sharding de Base de Datos a Escala</span>
+                        <span class="exercise-type type-challenge">Desafío</span>
+                    </div>
+                    <div class="exercise-desc">Implementa sharding horizontal con consistent hashing, rebalancing automático y manejo de hotspots</div>
+                    <div class="exercise-meta">⏱️ 240 min • 🎯 200 puntos • ⚡ Distribuido</div>
+                    <button class="start-btn" onclick="startActivity('sharding-challenge')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Laboratorio: ETL Pipeline con CDC</span>
+                        <span class="exercise-type type-practical">Laboratorio</span>
+                    </div>
+                    <div class="exercise-desc">Construye un pipeline de Change Data Capture: PostgreSQL → Debezium → Kafka → ClickHouse para analytics en tiempo real</div>
+                    <div class="exercise-meta">⏱️ 180 min • 🎯 180 puntos • 🔌 Streaming</div>
+                    <button class="start-btn" onclick="startActivity('cdc-pipeline')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Investigación: Comparativa NewSQL vs Distributed SQL</span>
+                        <span class="exercise-type type-theory">Investigación</span>
+                    </div>
+                    <div class="exercise-desc">Benchmark de CockroachDB, YugabyteDB y TiDB: consistencia, latencia y throughput en escenarios OLTP/OLAP</div>
+                    <div class="exercise-meta">⏱️ 150 min • 🎯 140 puntos • 🔬 Research</div>
+                    <button class="start-btn" onclick="startActivity('newsql-research')">Comenzar →</button>
+                </div>
             </div>
         </div>
 
@@ -1164,6 +1597,13 @@
             <p>Lenguajes, frameworks y metodologías de desarrollo de software profesional</p>
         </div>
         
+        <div class="module-counter">
+            <div class="counter-item">📚 <span>12</span> Módulos</div>
+            <div class="counter-item">✏️ <span>64</span> Ejercicios</div>
+            <div class="counter-item">🎯 <span>32</span> Desafíos</div>
+            <div class="counter-item">🏆 <span>10</span> Proyectos</div>
+        </div>
+        
         <div class="level-tabs">
             <button class="tab-btn active" onclick="switchTab('prog', 'basic')">Básico</button>
             <button class="tab-btn" onclick="switchTab('prog', 'intermediate')">Intermedio</button>
@@ -1173,63 +1613,291 @@
         <div id="prog-basic" class="content-grid active">
             <div class="card">
                 <div class="card-icon">🐍</div>
-                <h3>Python Fundamentos</h3>
+                <h3>Módulo 1: Python Fundamentos</h3>
                 <p>Sintaxis, estructuras de datos, funciones, POO básica y manejo de archivos.</p>
-                <span class="difficulty basic">Básico</span>
+                <ul>
+                    <li>Variables y tipos de datos</li>
+                    <li>Listas, diccionarios, tuplas, sets</li>
+                    <li>Funciones y lambda</li>
+                    <li>Clases y objetos</li>
+                </ul>
+                <span class="difficulty basic">Básico • 12 lecciones</span>
             </div>
             <div class="card">
                 <div class="card-icon">🌐</div>
-                <h3>Desarrollo Web Frontend</h3>
+                <h3>Módulo 2: Desarrollo Web Frontend</h3>
                 <p>HTML5 semántico, CSS3 moderno, Flexbox, Grid y JavaScript ES6+.</p>
-                <span class="difficulty basic">Básico</span>
+                <ul>
+                    <li>HTML semántico y accesibilidad</li>
+                    <li>CSS Grid y Flexbox</li>
+                    <li>JavaScript moderno (ES6+)</li>
+                    <li>DOM y eventos</li>
+                </ul>
+                <span class="difficulty basic">Básico • 14 lecciones</span>
             </div>
             <div class="card">
                 <div class="card-icon">🗂️</div>
-                <h3>Estructuras de Datos Básicas</h3>
+                <h3>Módulo 3: Estructuras de Datos Básicas</h3>
                 <p>Arrays, listas enlazadas, pilas, colas y algoritmos de búsqueda/ordenamiento simples.</p>
-                <span class="difficulty basic">Básico</span>
+                <ul>
+                    <li>Arrays y matrices</li>
+                    <li>Listas enlazadas simples/dobles</li>
+                    <li>Pilas (Stacks) y colas (Queues)</li>
+                    <li>Bubble sort, insertion sort</li>
+                </ul>
+                <span class="difficulty basic">Básico • 10 lecciones</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">📝</div>
+                <h3>Módulo 4: Control de Versiones (Git)</h3>
+                <p>Git desde cero: commits, branches, merges, resolución de conflictos y flujo de trabajo colaborativo.</p>
+                <ul>
+                    <li>Git init, add, commit, push</li>
+                    <li>Branching y merging</li>
+                    <li>Pull requests</li>
+                    <li>GitFlow y GitHub Flow</li>
+                </ul>
+                <span class="difficulty basic">Básico • 8 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES PROGRAMACIÓN BÁSICAS -->
+        <div id="prog-basic-activities" class="activity-section" style="display: block;">
+            <div class="activity-header">
+                <div class="activity-icon">💻</div>
+                <div class="activity-title">Actividades del Nivel Básico</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Proyecto 1: Juego del Ahorcado en Python</span>
+                        <span class="exercise-type type-project">Proyecto</span>
+                    </div>
+                    <div class="exercise-desc">Juego completo con manejo de archivos para palabras, sistema de puntuación y guardado de records</div>
+                    <div class="exercise-meta">⏱️ 90 min • 🎯 60 puntos • 🎮 Juego</div>
+                    <button class="start-btn" onclick="startActivity('hangman-python')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 1: Landing Page Responsive</span>
+                        <span class="exercise-type type-practical">Práctico</span>
+                    </div>
+                    <div class="exercise-desc">Crea una landing page con HTML5 semántico, CSS Grid, Flexbox, media queries y animaciones CSS</div>
+                    <div class="exercise-meta">⏱️ 120 min • 🎯 50 puntos • 🎨 Frontend</div>
+                    <button class="start-btn" onclick="startActivity('landing-page')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 2: Implementación de Estructuras de Datos</span>
+                        <span class="exercise-type type-practical">Práctico</span>
+                    </div>
+                    <div class="exercise-desc">Crea desde cero: LinkedList, Stack, Queue con todas sus operaciones (push, pop, enqueue, dequeue)</div>
+                    <div class="exercise-meta">⏱️ 100 min • 🎯 70 puntos • 🗂️ Estructuras</div>
+                    <button class="start-btn" onclick="startActivity('data-structures')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Desafío 1: Contribución Open Source</span>
+                        <span class="exercise-type type-challenge">Desafío</span>
+                    </div>
+                    <div class="exercise-desc">Realiza tu primera contribución real: fork, clone, branch, commit, push y pull request a un proyecto real</div>
+                    <div class="exercise-meta">⏱️ 180 min • 🎯 100 puntos • 🌟 Open Source</div>
+                    <button class="start-btn" onclick="startActivity('first-contribution')">Comenzar →</button>
+                </div>
             </div>
         </div>
 
         <div id="prog-intermediate" class="content-grid">
             <div class="card">
                 <div class="card-icon">⚛️</div>
-                <h3>React & Node.js</h3>
-                <p>Desarrollo full-stack con MERN/PERN stack, APIs RESTful y autenticación.</p>
-                <span class="difficulty intermediate">Intermedio</span>
+                <h3>Módulo 5: React.js</h3>
+                <p>Componentes, hooks, state management, routing y consumo de APIs RESTful.</p>
+                <ul>
+                    <li>Componentes funcionales y clases</li>
+                    <li>Hooks: useState, useEffect, useContext</li>
+                    <li>React Router</li>
+                    <li>Redux Toolkit / Zustand</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio • 16 lecciones</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <h3>Módulo 6: Node.js & Express</h3>
+                <p>Backend con JavaScript, APIs REST, middleware, autenticación JWT y manejo de bases de datos.</p>
+                <ul>
+                    <li>Express.js y middleware</li>
+                    <li>REST API design</li>
+                    <li>JWT authentication</li>
+                    <li>ORM: Prisma / TypeORM</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio • 14 lecciones</span>
             </div>
             <div class="card">
                 <div class="card-icon">☕</div>
-                <h3>Java & Spring Boot</h3>
-                <p>Programación orientada a objetos avanzada, inyección de dependencias y microservicios.</p>
-                <span class="difficulty intermediate">Intermedio</span>
+                <h3>Módulo 7: Java OOP</h3>
+                <p>Programación orientada a objetos, patrones de diseño, colecciones y manejo de excepciones.</p>
+                <ul>
+                    <li>Clases abstractas e interfaces</li>
+                    <li>Herencia y polimorfismo</li>
+                    <li>Collections Framework</li>
+                    <li>Streams y lambdas</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio • 12 lecciones</span>
             </div>
             <div class="card">
                 <div class="card-icon">🧪</div>
-                <h3>Testing y Calidad</h3>
-                <p>TDD, unit testing, integration testing y CI/CD pipelines.</p>
-                <span class="difficulty intermediate">Intermedio</span>
+                <h3>Módulo 8: Testing & TDD</h3>
+                <p>Unit testing, integration testing, Jest, pytest y desarrollo guiado por pruebas.</p>
+                <ul>
+                    <li>Jest y React Testing Library</li>
+                    <li>Pytest y mocks</li>
+                    <li>TDD: Red-Green-Refactor</li>
+                    <li>Coverage y CI</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio • 10 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES PROGRAMACIÓN INTERMEDIAS -->
+        <div id="prog-intermediate-activities" class="activity-section" style="display: none;">
+            <div class="activity-header">
+                <div class="activity-icon">⚡</div>
+                <div class="activity-title">Actividades del Nivel Intermedio</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Proyecto 2: E-commerce Full Stack (MERN)</span>
+                        <span class="exercise-type type-project">Proyecto</span>
+                    </div>
+                    <div class="exercise-desc">Aplicación completa: React frontend, Node/Express backend, MongoDB, autenticación JWT, pasarela de pagos Stripe</div>
+                    <div class="exercise-meta">⏱️ 480 min • 🎯 300 puntos • 🛒 Full Stack</div>
+                    <button class="start-btn" onclick="startActivity('ecommerce-mern')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 3: Sistema de Gestión con Java Spring</span>
+                        <span class="exercise-type type-practical">Práctico</span>
+                    </div>
+                    <div class="exercise-desc">API REST con Spring Boot: inyección de dependencias, JPA/Hibernate, seguridad Spring Security, documentación OpenAPI</div>
+                    <div class="exercise-meta">⏱️ 240 min • 🎯 180 puntos • ☕ Enterprise</div>
+                    <button class="start-btn" onclick="startActivity('spring-api')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Desafío 2: 100% Code Coverage con TDD</span>
+                        <span class="exercise-type type-challenge">Desafío</span>
+                    </div>
+                    <div class="exercise-desc">Desarrolla una biblioteca matemática usando estrictamente TDD: tests primero, luego implementación, refactorización</div>
+                    <div class="exercise-meta">⏱️ 180 min • 🎯 150 puntos • 🧪 Testing</div>
+                    <button class="start-btn" onclick="startActivity('tdd-challenge')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Laboratorio: WebSockets en Tiempo Real</span>
+                        <span class="exercise-type type-practical">Laboratorio</span>
+                    </div>
+                    <div class="exercise-desc">Chat en tiempo real con Socket.io: salas privadas, historial de mensajes, indicador de "escribiendo..."</div>
+                    <div class="exercise-meta">⏱️ 150 min • 🎯 120 puntos • 💬 Real-time</div>
+                    <button class="start-btn" onclick="startActivity('websocket-chat')">Comenzar →</button>
+                </div>
             </div>
         </div>
 
         <div id="prog-advanced" class="content-grid">
             <div class="card">
                 <div class="card-icon">🏗️</div>
-                <h3>Arquitectura de Software</h3>
-                <p>Microservicios, event-driven architecture, DDD y patrones enterprise.</p>
-                <span class="difficulty advanced">Avanzado</span>
+                <h3>Módulo 9: Arquitectura de Microservicios</h3>
+                <p>Diseño distribuido, comunicación entre servicios, Docker, Kubernetes y escalabilidad.</p>
+                <ul>
+                    <li>API Gateway y Service Discovery</li>
+                    <li>Event-driven architecture</li>
+                    <li>Docker y Kubernetes</li>
+                    <li>Observabilidad: logs, métricas, tracing</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado • 18 lecciones</span>
             </div>
             <div class="card">
                 <div class="card-icon">🤖</div>
-                <h3>Inteligencia Artificial</h3>
-                <p>Machine Learning, Deep Learning, NLP y visión computacional.</p>
-                <span class="difficulty advanced">Avanzado</span>
+                <h3>Módulo 10: Machine Learning con Python</h3>
+                <p>Scikit-learn, TensorFlow, redes neuronales, procesamiento de datos y modelos predictivos.</p>
+                <ul>
+                    <li>Preprocesamiento de datos</li>
+                    <li>Regresión y clasificación</li>
+                    <li>Redes neuronales con Keras</li>
+                    <li>Deploy de modelos ML</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado • 20 lecciones</span>
             </div>
             <div class="card">
                 <div class="card-icon">🔒</div>
-                <h3>Seguridad Avanzada</h3>
-                <p>Ethical hacking, pentesting, seguridad en aplicaciones y cloud.</p>
-                <span class="difficulty advanced">Avanzado</span>
+                <h3>Módulo 11: Ciberseguridad</h3>
+                <p>Ethical hacking, pentesting, seguridad en aplicaciones web, criptografía y compliance.</p>
+                <ul>
+                    <li>OWASP Top 10</li>
+                    <li>SQL Injection, XSS, CSRF</li>
+                    <li>Pentesting con Burp Suite</li>
+                    <li>Seguridad en CI/CD</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado • 14 lecciones</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Módulo 12: DevOps & CI/CD</h3>
+                <p>Jenkins, GitHub Actions, infraestructura como código, monitoreo y logging avanzado.</p>
+                <ul>
+                    <li>GitHub Actions y GitLab CI</li>
+                    <li>Terraform y Ansible</li>
+                    <li>Prometheus y Grafana</li>
+                    <li>ELK Stack</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado • 16 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES PROGRAMACIÓN AVANZADAS -->
+        <div id="prog-advanced-activities" class="activity-section" style="display: none;">
+            <div class="activity-header">
+                <div class="activity-icon">🚀</div>
+                <div class="activity-title">Actividades del Nivel Avanzado</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Proyecto Final: Plataforma de Microservicios</span>
+                        <span class="exercise-type type-project">Proyecto</span>
+                    </div>
+                    <div class="exercise-desc">Sistema completo: 6 microservicios (usuarios, órdenes, pagos, notificaciones, inventario, analytics), Kubernetes, Istio, observabilidad</div>
+                    <div class="exercise-meta">⏱️ 600 min • 🎯 500 puntos • ☸️ Cloud Native</div>
+                    <button class="start-btn" onclick="startActivity('microservices-platform')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Desafío 3: Computer Vision desde Cero</span>
+                        <span class="exercise-type type-challenge">Desafío</span>
+                    </div>
+                    <div class="exercise-desc">Implementa una CNN para clasificación de imágenes sin usar frameworks de alto nivel (solo NumPy)</div>
+                    <div class="exercise-meta">⏱️ 480 min • 🎯 400 puntos • 🧠 Deep Learning</div>
+                    <button class="start-btn" onclick="startActivity('cnn-from-scratch')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Laboratorio: Pentesting de Aplicación Real</span>
+                        <span class="exercise-type type-practical">Laboratorio</span>
+                    </div>
+                    <div class="exercise-desc">Auditoría de seguridad completa: reconocimiento, scanning, explotación de vulnerabilidades, reporte profesional</div>
+                    <div class="exercise-meta">⏱️ 360 min • 🎯 350 puntos • 🛡️ Ethical Hacking</div>
+                    <button class="start-btn" onclick="startActivity('pentest-lab')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Investigación: GitOps con ArgoCD</span>
+                        <span class="exercise-type type-project">Investigación</span>
+                    </div>
+                    <div class="exercise-desc">Implementa despliegue continuo con GitOps: ArgoCD, Helm charts, progressive delivery con canary deployments</div>
+                    <div class="exercise-meta">⏱️ 300 min • 🎯 280 puntos • 🔄 DevOps</div>
+                    <button class="start-btn" onclick="startActivity('gitops-research')">Comenzar →</button>
+                </div>
             </div>
         </div>
     </section>
@@ -1241,6 +1909,13 @@
             <p>Ingeniería de software, modelado de procesos y arquitectura empresarial</p>
         </div>
         
+        <div class="module-counter">
+            <div class="counter-item">📚 <span>9</span> Módulos</div>
+            <div class="counter-item">✏️ <span>36</span> Ejercicios</div>
+            <div class="counter-item">🎯 <span>18</span> Casos de Estudio</div>
+            <div class="counter-item">🏆 <span>6</span> Proyectos</div>
+        </div>
+        
         <div class="level-tabs">
             <button class="tab-btn active" onclick="switchTab('sys', 'basic')">Básico</button>
             <button class="tab-btn" onclick="switchTab('sys', 'intermediate')">Intermedio</button>
@@ -1250,45 +1925,237 @@
         <div id="sys-basic" class="content-grid active">
             <div class="card">
                 <div class="card-icon">📋</div>
-                <h3>Levantamiento de Requisitos</h3>
+                <h3>Módulo 1: Levantamiento de Requisitos</h3>
                 <p>Técnicas de recolección, análisis de stakeholders y documentación funcional.</p>
-                <span class="difficulty basic">Básico</span>
+                <ul>
+                    <li>Entrevistas y cuestionarios</li>
+                    <li>Historias de usuario</li>
+                    <li>Criterios de aceptación</li>
+                    <li>Backlog grooming</li>
+                </ul>
+                <span class="difficulty basic">Básico • 8 lecciones</span>
             </div>
             <div class="card">
                 <div class="card-icon">🔄</div>
-                <h3>Modelado de Procesos</h3>
+                <h3>Módulo 2: Modelado de Procesos</h3>
                 <p>Diagramas de flujo, DFD (Diagramas de Flujo de Datos) y BPMN básico.</p>
-                <span class="difficulty basic">Básico</span>
+                <ul>
+                    <li>Notación BPMN 2.0</li>
+                    <li>Pools y lanes</li>
+                    <li>Eventos y gateways</li>
+                    <li>Procesos AS-IS vs TO-BE</li>
+                </ul>
+                <span class="difficulty basic">Básico • 7 lecciones</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3>Módulo 3: Metodologías Ágiles</h3>
+                <p>Scrum, Kanban, sprints, user stories y gestión de proyectos ágiles.</p>
+                <ul>
+                    <li>Roles: PO, SM, Dev Team</li>
+                    <li>Ceremonias Scrum</li>
+                    <li>Estimación con story points</li>
+                    <li>Velocity y burndown charts</li>
+                </ul>
+                <span class="difficulty basic">Básico • 9 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES ANÁLISIS BÁSICAS -->
+        <div id="sys-basic-activities" class="activity-section" style="display: block;">
+            <div class="activity-header">
+                <div class="activity-icon">📊</div>
+                <div class="activity-title">Actividades del Nivel Básico</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Caso de Estudio 1: Elicitación para App de Delivery</span>
+                        <span class="exercise-type type-project">Caso de Estudio</span>
+                    </div>
+                    <div class="exercise-desc">Realiza 5 entrevistas estructuradas, crea un mapa de empatía y define el MVP para una app de delivery de comida</div>
+                    <div class="exercise-meta">⏱️ 180 min • 🎯 80 puntos • 🗣️ Elicitación</div>
+                    <button class="start-btn" onclick="startActivity('delivery-elicitation')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 1: Modelado BPMN de Proceso de Compra</span>
+                        <span class="exercise-type type-practical">Práctico</span>
+                    </div>
+                    <div class="exercise-desc">Diseña el proceso completo de compra online: desde el carrito hasta la entrega, con excepciones y compensaciones</div>
+                    <div class="exercise-meta">⏱️ 120 min • 🎯 60 puntos • 🔄 BPMN</div>
+                    <button class="start-btn" onclick="startActivity('bpmn-purchase')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Simulación: Sprint Planning y Daily Scrum</span>
+                        <span class="exercise-type type-practical">Simulación</span>
+                    </div>
+                    <div class="exercise-desc">Participa en una simulación de 2 sprints: planning, daily standups, review y retrospective con un equipo virtual</div>
+                    <div class="exercise-meta">⏱️ 240 min • 🎯 100 puntos • 🏃 Agile</div>
+                    <button class="start-btn" onclick="startActivity('scrum-simulation')">Comenzar →</button>
+                </div>
             </div>
         </div>
 
         <div id="sys-intermediate" class="content-grid">
             <div class="card">
                 <div class="card-icon">🗂️</div>
-                <h3>UML Avanzado</h3>
+                <h3>Módulo 4: UML Avanzado</h3>
                 <p>Diagramas de clases, secuencia, componentes, estado y actividad.</p>
-                <span class="difficulty intermediate">Intermedio</span>
+                <ul>
+                    <li>Diagramas de clases complejos</li>
+                    <li>Secuencia y comunicación</li>
+                    <li>Estado y actividad</li>
+                    <li>Componentes y despliegue</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio • 10 lecciones</span>
             </div>
             <div class="card">
                 <div class="card-icon">📈</div>
-                <h3>Análisis de Negocio</h3>
+                <h3>Módulo 5: Análisis de Negocio</h3>
                 <p>KPIs, modelado de procesos AS-IS/TO-BE, análisis de gap.</p>
-                <span class="difficulty intermediate">Intermedio</span>
+                <ul>
+                    <li>Balanced Scorecard</li>
+                    <li>Análisis FODA</li>
+                    <li>Mapa de procesos</li>
+                    <li>Análisis de valor</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio • 8 lecciones</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">💼</div>
+                <h3>Módulo 6: Gestión de Requisitos</h3>
+                <p>Traceability, impact analysis, herramientas ALM y gestión de cambios.</p>
+                <ul>
+                    <li>Matriz de trazabilidad</li>
+                    <li>Análisis de impacto</li>
+                    <li>Jira, Azure DevOps</li>
+                    <li>Gestión de cambios</li>
+                </ul>
+                <span class="difficulty intermediate">Intermedio • 9 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES ANÁLISIS INTERMEDIAS -->
+        <div id="sys-intermediate-activities" class="activity-section" style="display: none;">
+            <div class="activity-header">
+                <div class="activity-icon">📈</div>
+                <div class="activity-title">Actividades del Nivel Intermedio</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Caso de Estudio 2: Rediseño de Proceso Bancario</span>
+                        <span class="exercise-type type-project">Caso de Estudio</span>
+                    </div>
+                    <div class="exercise-desc">Análisis AS-IS de proceso de préstamos, identificación de cuellos de botella, propuesta TO-BE con mejora del 40% en tiempo</div>
+                    <div class="exercise-meta">⏱️ 300 min • 🎯 150 puntos • 🏦 BFSI</div>
+                    <button class="start-btn" onclick="startActivity('banking-redesign')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Ejercicio 2: Arquitectura de Software con UML</span>
+                        <span class="exercise-type type-practical">Práctico</span>
+                    </div>
+                    <div class="exercise-desc">Diseña la arquitectura completa de un sistema: diagramas de clases, secuencia, componentes, despliegue y estado</div>
+                    <div class="exercise-meta">⏱️ 240 min • 🎯 120 puntos • 🏗️ Arquitectura</div>
+                    <button class="start-btn" onclick="startActivity('uml-architecture')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Desafío: Análisis de Impacto de Cambio Mayor</span>
+                        <span class="exercise-type type-challenge">Desafío</span>
+                    </div>
+                    <div class="exercise-desc">Un requisito crítico cambia a mitad del proyecto. Realiza análisis de impacto completo: costo, tiempo, riesgos, stakeholders</div>
+                    <div class="exercise-meta">⏱️ 180 min • 🎯 130 puntos • ⚡ Gestión de Cambio</div>
+                    <button class="start-btn" onclick="startActivity('impact-analysis')">Comenzar →</button>
+                </div>
             </div>
         </div>
 
         <div id="sys-advanced" class="content-grid">
             <div class="card">
                 <div class="card-icon">🏛️</div>
-                <h3>Arquitectura Empresarial</h3>
-                <p>Frameworks TOGAF, Zachman, mapeo de capacidades y gobernanza TI.</p>
-                <span class="difficulty advanced">Avanzado</span>
+                <h3>Módulo 7: Arquitectura Empresarial</h3>
+                <p>Frameworks TOGAF, Zachman, mapeo de capacidades y alineación TI-Negocio.</p>
+                <ul>
+                    <li>ADM de TOGAF</li>
+                    <li>Vistas arquitectónicas</li>
+                    <li>Roadmap de transformación</li>
+                    <li>Gobernanza empresarial</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado • 14 lecciones</span>
             </div>
             <div class="card">
                 <div class="card-icon">🎯</div>
-                <h3>Gestión de Cambio</h3>
+                <h3>Módulo 8: Gestión del Cambio</h3>
                 <p>Transformación digital, ADKAR, gestión de stakeholders y comunicación.</p>
-                <span class="difficulty advanced">Avanzado</span>
+                <ul>
+                    <li>Modelo ADKAR</li>
+                    <li>Comunicación estratégica</li>
+                    <li>Resistencia al cambio</li>
+                    <li>Change agents</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado • 10 lecciones</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Módulo 9: Optimización de Procesos</h3>
+                <p>Lean Six Sigma, automatización RPA, minería de procesos y mejora continua.</p>
+                <ul>
+                    <li>DMAIC</li>
+                    <li>Automatización RPA</li>
+                    <li>Process mining</li>
+                    <li>Hyperautomation</li>
+                </ul>
+                <span class="difficulty advanced">Avanzado • 12 lecciones</span>
+            </div>
+        </div>
+
+        <!-- ACTIVIDADES ANÁLISIS AVANZADAS -->
+        <div id="sys-advanced-activities" class="activity-section" style="display: none;">
+            <div class="activity-header">
+                <div class="activity-icon">🏛️</div>
+                <div class="activity-title">Actividades del Nivel Avanzado</div>
+            </div>
+            <div class="exercise-list">
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Proyecto Final: Arquitectura Empresarial TOGAF</span>
+                        <span class="exercise-type type-project">Proyecto</span>
+                    </div>
+                    <div class="exercise-desc">Desarrolla la arquitectura empresarial completa para una organización ficticia usando ADM: visión, negocio, sistemas, tecnología</div>
+                    <div class="exercise-meta">⏱️ 480 min • 🎯 300 puntos • 🏛️ Enterprise</div>
+                    <button class="start-btn" onclick="startActivity('togaf-project')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Caso de Estudio 3: Transformación Digital Bancaria</span>
+                        <span class="exercise-type type-project">Caso de Estudio</span>
+                    </div>
+                    <div class="exercise-desc">Lidera la transformación digital de un banco tradicional: estrategia, roadmap, gestión del cambio, métricas de éxito</div>
+                    <div class="exercise-meta">⏱️ 360 min • 🎯 250 puntos • 🚀 Transformación</div>
+                    <button class="start-btn" onclick="startActivity('digital-transformation')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Laboratorio: Process Mining con Datos Reales</span>
+                        <span class="exercise-type type-practical">Laboratorio</span>
+                    </div>
+                    <div class="exercise-desc">Usa Celonis o ProM para analizar logs de eventos, descubrir cuellos de botella invisibles y proponer optimizaciones</div>
+                    <div class="exercise-meta">⏱️ 240 min • 🎯 200 puntos • ⛏️ Minería</div>
+                    <button class="start-btn" onclick="startActivity('process-mining')">Comenzar →</button>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-header">
+                        <span class="exercise-name">Investigación: RPA e Hyperautomation</span>
+                        <span class="exercise-type type-project">Investigación</span>
+                    </div>
+                    <div class="exercise-desc">Diseña una estrategia de hyperautomation combinando RPA, low-code, AI e integración de sistemas legacy</div>
+                    <div class="exercise-meta">⏱️ 300 min • 🎯 220 puntos • 🤖 Automatización</div>
+                    <button class="start-btn" onclick="startActivity('hyperautomation')">Comenzar →</button>
+                </div>
             </div>
         </div>
     </section>
@@ -1459,7 +2326,7 @@ for notacion, valor in analizar_complejidad(n).items():
         <div style="display: grid; gap: 1.5rem; margin-top: 2rem;">
             <div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>🗄️ Bases de Datos</span>
+                    <span>🗄️ Bases de Datos (12 módulos)</span>
                     <span style="color: var(--database);">0%</span>
                 </div>
                 <div class="progress-bar">
@@ -1468,7 +2335,7 @@ for notacion, valor in analizar_complejidad(n).items():
             </div>
             <div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>📐 Matemáticas Computacionales</span>
+                    <span>📐 Matemáticas Computacionales (12 módulos)</span>
                     <span style="color: var(--math);">0%</span>
                 </div>
                 <div class="progress-bar">
@@ -1477,7 +2344,7 @@ for notacion, valor in analizar_complejidad(n).items():
             </div>
             <div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>💻 Programación</span>
+                    <span>💻 Programación (12 módulos)</span>
                     <span style="color: var(--primary);">0%</span>
                 </div>
                 <div class="progress-bar">
@@ -1486,7 +2353,7 @@ for notacion, valor in analizar_complejidad(n).items():
             </div>
             <div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>📊 Análisis de Sistemas</span>
+                    <span>📊 Análisis de Sistemas (9 módulos)</span>
                     <span style="color: var(--secondary);">0%</span>
                 </div>
                 <div class="progress-bar">
@@ -1551,7 +2418,7 @@ for notacion, valor in analizar_complejidad(n).items():
                 <div style="width: 45%;"></div>
             </div>
             
-            <div class="roadground-item">
+            <div class="roadmap-item">
                 <div style="width: 45%;"></div>
                 <div class="roadmap-dot" style="background: var(--database); box-shadow: 0 0 20px rgba(6, 255, 165, 0.5);"></div>
                 <div class="roadmap-content">
@@ -1581,15 +2448,29 @@ for notacion, valor in analizar_complejidad(n).items():
     </footer>
 
     <script>
-        // Tab Switching
+        // Tab Switching with Activities
         function switchTab(section, level) {
-            const buttons = document.querySelectorAll(`#${section === 'math' ? 'matematicas' : section === 'db' ? 'basesdatos' : section === 'prog' ? 'programacion' : 'sistemas'} .tab-btn`);
+            const sectionId = section === 'math' ? 'matematicas' : section === 'db' ? 'basesdatos' : section === 'prog' ? 'programacion' : 'sistemas';
+            const buttons = document.querySelectorAll(`#${sectionId} .tab-btn`);
             buttons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             
-            const grids = document.querySelectorAll(`[id^="${section}-"]`);
+            // Hide all content grids
+            const grids = document.querySelectorAll(`#${sectionId} .content-grid`);
             grids.forEach(grid => grid.classList.remove('active'));
+            
+            // Show selected grid
             document.getElementById(`${section}-${level}`).classList.add('active');
+            
+            // Hide all activities
+            const activities = document.querySelectorAll(`#${sectionId} .activity-section`);
+            activities.forEach(act => act.style.display = 'none');
+            
+            // Show activities for selected level
+            const selectedActivity = document.getElementById(`${section}-${level}-activities`);
+            if (selectedActivity) {
+                selectedActivity.style.display = 'block';
+            }
             
             updateProgress();
         }
@@ -1601,6 +2482,15 @@ for notacion, valor in analizar_complejidad(n).items():
             
             document.querySelectorAll('[id^="playground-"]').forEach(pg => pg.style.display = 'none');
             document.getElementById(`playground-${type}`).style.display = 'grid';
+        }
+        
+        // Activity Starters
+        function startActivity(activityId) {
+            alert(`Iniciando actividad: ${activityId}\n\nEn una implementación real, esto abriría el entorno interactivo específico para esta actividad.`);
+        }
+        
+        function startQuiz(quizId) {
+            alert(`Iniciando quiz: ${quizId}\n\nEn una implementación real, esto mostraría las preguntas del quiz con evaluación automática.`);
         }
         
         // SQL Execution Simulation
@@ -1743,7 +2633,7 @@ for notacion, valor in analizar_complejidad(n).items():
             });
         }, observerOptions);
         
-        document.querySelectorAll('.card, .roadmap-item').forEach(el => {
+        document.querySelectorAll('.card, .roadmap-item, .exercise-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
